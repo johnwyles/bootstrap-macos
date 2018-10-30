@@ -1,14 +1,19 @@
 #!/usr/bin/env bash
 
+# Ask for the administrator password upfront
+sudo -v
+# Keep-alive: update existing `sudo` time stamp until we finish
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
 # Backup the dotfiles that already exist
 function backupDotfiles() {
   if ! test -d ~/.bootstrap-macos-dotfiles-backup; then
     mkdir -p ~/.bootstrap-macos-dotfiles-backup
   else
     echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m A backup of your dotfiles (~/.*)"
-    eho     "already occurs in your home directory! We cannot run this script"
+    echo    "already exists in your home directory! We cannot run this script"
     echo    "safely as it will overwrite an existing backup or do something you"
-    echo    "may not like."
+    echo    "may not like. Exiting."
     echo
     exit 1
   fi
@@ -34,12 +39,6 @@ function copyDotfiles() {
 
 # Run all of the shell scripts for setting up the machine
 function runSetup() {
-  # Ask for the administrator password upfront
-  sudo -v
-
-  # Keep-alive: update existing `sudo` time stamp until we finish
-  while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
   # Backup dotfiles
   echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Backing up ~/.* files to "
   echo    "~/.bootstrap-macos-dotfiles-backup/: ./setup.sh"
@@ -52,16 +51,33 @@ function runSetup() {
   # Update the OS and Install Xcode Tools
   echo
   echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running update of macOS: ./setup.sh"
-  echo "    (restart if needed and run again): ./setup.sh"
+  echo "    (restart if needed and run this script again): ./setup.sh"
   echo
-  sudo softwareupdate -ia
+  sudo softwareupdate -ia --verbose
 
-  # Install Xcode command line tools
+  # Xcode CLI tools
   echo
   echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of Xcode CLI tools:"
   echo    "./setup.sh"
   echo
-  ( xcode-select --install )
+  # Install Xcode Command Line Tools
+  if ! $(xcode-select -p &>/dev/null); then
+    xcode-select --install &>/dev/null
+    # Wait until the Xcode Command Line Tools are installed
+    until $(xcode-select -p &>/dev/null); do
+      sleep 5
+    done
+  fi
+  # Accept the Xcode/iOS license agreement
+  if ! $(sudo xcodebuild -license status); then
+    sudo xcodebuild -license accept
+  fi
+
+  # Install additional required components
+  # /Applications/Xcode.app/Contents/MacOS/Xcode -installComponents
+  for pkg in /Applications/Xcode.app/Contents/Resources/Packages/*.pkg; do
+    sudo installer -pkg "$pkg" -target /
+  done
 
   # Setup macOS Preferences and Settings
   echo
@@ -205,44 +221,42 @@ function runSetup() {
 }
 
 echo
-echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Starting Bootstrap of macOS"
+echo -e  "\033[1mBOOTSTRAP_MACOS:\033[0m Starting Bootstrap of macOS"
 echo
-echo -e <<ENDOUT
-\033[1mBOOTSTRAP_MACOS:\033[0m \033[31m\033[5m\033[7m\033[1mWARNING!\033[0m \
-This script \033[1mWILL\033[0m overwrite existing settings and files!
-    Did you read \033[1mALL\033[0m of the scripts (i.e. "scripts/*.sh" files)?\
-[y,N]:
-ENDOUT
+echo -ne "\033[1mBOOTSTRAP_MACOS:\033[0m "
+echo -ne "\033[31m\033[5m\033[7m\033[1mWARNING!\033[0m This script "
+echo -e  "\033[1mWILL\033[0m overwrite some settings and files!"
+echo -ne "Did you read \033[1mALL\033[0m of the scripts (i.e. "scripts/*.sh" files)? "
+echo -ne  "[y,N]: "
 read -p "" -n 1 YESNO
 case $YESNO in
-[Yy]* )
-  echo
-  echo -e -n <<ENDOUT
-    And you are \033[1mSURE\033[0m you still want to run this? [y,N]:
-ENDOUT
-  read -p "" -n 1 YESNO
-  case $YESNO in
-    [Yy]* )
-      echo
-      runSetup $@
-    ;;
-    [Nn]* )
-      echo
-      exit
-    ;;
-    * )
-      echo
-      echo "Please answer [Y]es or [N]o"
-    ;;
-  esac
-;;
-[Nn]* )
-  echo
-  exit
-;;
-* )
-  echo
-  echo "Please answer [Y]es or [N]o."
+  [Yy]* )
+    echo
+    echo -ne "And you are \033[1mSURE\033[0m you still want to run this? "
+    echo -ne "[y,N]: "
+    read -p "" -n 1 YESNO
+    case $YESNO in
+      [Yy]* )
+        echo
+        runSetup $@
+      ;;
+      [Nn]* )
+        echo
+        exit
+      ;;
+      * )
+        echo
+        echo "Please answer [Y]es or [N]o"
+      ;;
+    esac
+  ;;
+  [Nn]* )
+    echo
+    exit
+  ;;
+  * )
+    echo
+    echo "Please answer [Y]es or [N]o."
 ;;
 esac
 

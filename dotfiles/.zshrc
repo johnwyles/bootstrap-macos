@@ -1,20 +1,17 @@
-# Load some of the shell dotfiles:
-for file in ~/.{aliases,functions}; do
-    [ -r "$file" ] && [ -f "$file" ] && source "$file";
-done;
-unset file;
+#!/usr/bin/env zsh
 
-# rbenv Initialization
+# Load some of the shell dotfiles:
+# for file in ~/.{aliases,functions}; do
+#     [ -r "$file" ] && [ -f "$file" ] && source "$file";
+# done;
+# unset file;
+
+# pyenv
+eval "$(pyenv init -)"
+
+# rbenv
 eval "$(rbenv init -)"
 
-################################################################################
-# colorls                                                                      #
-################################################################################
-export CLICOLOR=1
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-source $(dirname $(gem which colorls))/tab_complete.sh
-alias ls='colorls --dark --sort-dirs --report'
-alias lc='colorls --tree --dark'
 
 ################################################################################
 # Go                                                                           #
@@ -25,50 +22,37 @@ export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 test -d "${GOPATH}" || mkdir "${GOPATH}"
 test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
 
-################################################################################
-# NVM                                                                          #
-################################################################################
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
 
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+################################################################################
+# colorls                                                                      #
+################################################################################
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+source $(dirname $(gem which colorls))/tab_complete.sh
+alias ls='colorls --dark --sort-dirs --report'
+alias lc='colorls --tree --dark'
 
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
 
 ################################################################################
 # Oh My Zsh                                                                    #
 ################################################################################
-# Powerline
-. /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 # Plugins and Customizations
 export ZSH=$HOME/.oh-my-zsh
 export DEFAULT_USER=$USER
 ENABLE_CORRECTION="false"
 HIST_STAMPS="mm/dd/yyyy"
 TERM=xterm-256color
-plugins=(git git-extras gem bundler osx ruby rvm rails sudo sublime colorize\
- history history-substring-search last-working-dir compleat zsh-completions\
- zsh-history-substring-search zsh-autosuggestions zsh-syntax-highlighting \
- zsh-syntax-highlighting-filetypes warhol)
+plugins=(aws bundler cargo colorize command-not-found common-aliases compleat \
+    docker docker-compose gem git git-extras git-flow github gitignore golang \
+    history history-substring-search kubectl last-working-dir node npm nvm osx \
+    pip pyenv pylint python rails rake rbenv react-native ruby rvm ssh-agent \
+    sudo sublime terminalapp terraform themes tmux tmuxinator virtualenv \
+    virtualenvwrapper xcode zsh-navigation-tools)
+
 autoload -U compinit && compinit
 bindkey '\e[A' history-beginning-search-backward
 bindkey '\e[B' history-beginning-search-forward
+
 # Powerlevel9k
 POWERLEVEL9K_MODE='awesome-fontconfig'
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
@@ -123,3 +107,28 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 #ZSH_THEME="spaceship-prompt/spaceship"
 # Enable Oh My Zsh
 source $ZSH/oh-my-zsh.sh
+
+
+################################################################################
+# NVM                                                                          #
+################################################################################
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc

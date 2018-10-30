@@ -2,8 +2,11 @@
 
 # Install Zsh
 brew install zsh
-brew install zsh-completions
 grep -q -F "/usr/local/bin/zsh" /etc/shells || sudo sh -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
+chsh -s /usr/local/bin/zsh
+
+# Zsh Completion
+brew install zsh-completions
 
 # Install Oh-My-Zsh
 echo
@@ -24,6 +27,10 @@ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/theme
 git clone https://github.com/denysdovhan/spaceship-prompt.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/spaceship-prompt
 # ln -s ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/spaceship-prompt/spaceship.zsh-theme ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/spaceship.zsh-theme
 
+# Install pygments
+pip install Pygments
+pip3 install Pygments
+
 cp dotfiles/.zshrc ~/.zshrc
 source ~/.zshrc
 
@@ -33,5 +40,4 @@ rbenv rehash && rehash
 compaudit | xargs chmod g-w,o-w
 
 # Switch to Zsh
-chsh -s /usr/local/bin/zsh
 source ~/.zshrc

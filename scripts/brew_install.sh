@@ -1,20 +1,21 @@
 #!/usr/bin/env bash
 
-# Install command-line tools using Homebrew.
-
-# Ask for the administrator password upfront.
-sudo -v
-
-# Keep-alive: update existing `sudo` time stamp until the script has finished.
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
-# Check for Homebrew,
-# Install if we don't have it
-if test ! $(which brew); then
-  echo "Installing homebrew..."
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# Install Homebrew if not installed - brew.sh
+if ! hash brew 2>/dev/null; then
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
 fi
 
-# Make sure we’re using the latest Homebrew
+# Schedule Homebrew Updates
+# This is better than HOMEBREW_AUTO_UPDATE_SECS
+# Consider disabling auto-updates with
+# export HOMEBREW_NO_AUTO_UPDATE=1
+cron_entry='0 */6 * * * /usr/local/bin/brew update &>/dev/null'
+if ! crontab -l | fgrep "$cron_entry" >/dev/null; then
+  (crontab -l 2>/dev/null; echo "$cron_entry") | \
+    crontab -
+fi
+
+# Make sure we are using the latest Homebrew
 brew update
+# Upgrade existing packages
 brew upgrade --all

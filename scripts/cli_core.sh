@@ -44,6 +44,7 @@ brew install git-extras
 # brew install speedtest_cli
 # brew install ssh-copy-id
 # brew install tree
+brew install tmux
 # brew install webkit2png
 # brew install zopfli
 # brew install pkg-config libffi
