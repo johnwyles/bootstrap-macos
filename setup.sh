@@ -29,7 +29,7 @@ function backupDotfiles() {
 
 # Copy over the dotfiles to home
 function copyDotfiles() {
-  rsync ".DS_Store" \
+  rsync --exclude ".DS_Store" \
     --exclude ".Trash" \
     --exclude ".CFUserTextEncoding" \
     -avh \
