@@ -39,8 +39,6 @@ case $YESNO in
   # Do nothing
 ;;
 * )
-  echo
-  echo "Please answer [Y]es or [N]o."
 ;;
 esac
 
@@ -549,7 +547,7 @@ for app in "Activity Monitor" \
   "Contacts" \
   "Dock" \
   "Finder" \
-  "Sublime Text"
+  "Sublime Text" \
   "SystemUIServer" \
   "iCal"; do
   killall "${app}" &> /dev/null
