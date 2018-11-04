@@ -99,7 +99,7 @@ function runSetup() {
   echo    "  ./scripts/cli_core.sh"
   echo
   ( ./scripts/cli_core.sh )
-  
+
   # Setup Java
   echo
   echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of Java:"

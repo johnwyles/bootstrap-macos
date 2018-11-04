@@ -34,6 +34,9 @@ hyper install hyper-dracula
 
 # iTerm2
 brew cask install --appdir="/Applications" iterm2
+/Applications/iTerm.app/Contents/MacOS/iTerm2 &
+sleep 5
+killall iTerm2
 open "./files/Dracula.itermcolors"
 open "./files/Solarized_Dark.itermcolors"
 open "./files/termk.itermcolors"
@@ -55,7 +58,7 @@ tell application "Terminal"
   (* Open the custom theme so that it gets added to the list
      of available terminal themes (note: this will open two
      additional terminal windows). *)
-  do shell script "open '$HOME/.bootstrap-macos/files/" & themeName & ".terminal'"
+  do shell script "open 'files/" & themeName & ".terminal'"
 
   (* Wait a little bit to ensure that the custom theme is added. *)
   delay 10
@@ -103,7 +106,8 @@ defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 # Android                                                                      #
 ################################################################################
 brew cask install --appdir="/Applications" android-studio
-brew install android-sdk
+brew cask install --appdir="/Applications" android-sdk
+brew cask install --appdir="/Applications" android-platform-tools   
 
 
 ################################################################################

@@ -41,7 +41,7 @@ case $XCODE_FILE_EXTENSION in
     hdiutil attach "${XCODE_FILE}"
     pushd /Volumes/Xcode
     echo "Running installer from Xcode file: ${XCODE_FILE}"
-    sudo cp -R /Volumes/Xcode/Xcode.app /Applications/
+    sudo rsync -avh --no-perms ~/Downloads/Xcode.app /Applications/
     popd
     hdiutil unmount /Volumes/Xcode
     # rm -f "${XCODE_FILE}"
@@ -54,7 +54,7 @@ case $XCODE_FILE_EXTENSION in
       echo -n "."
       sleep 1
     done
-    sudo cp -R ~/Downloads/Xcode.app /Applications/
+    sudo rsync -avh --no-perms ~/Downloads/Xcode.app /Applications/
     rm -rf ~/Downloads/Xcode.app
     # rm -f "${XCODE_FILE}"
   ;;

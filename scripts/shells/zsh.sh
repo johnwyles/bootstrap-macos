@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
 # Install Zsh
+touch ~/.zshrc
 brew install zsh
 grep -q -F "/usr/local/bin/zsh" /etc/shells || sudo sh -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
 chsh -s /usr/local/bin/zsh
@@ -10,7 +11,7 @@ brew install zsh-completions
 
 # Install Oh-My-Zsh
 echo
-echo -e "\033[1m\033[5mType \"exit\" and hit enter if Oh-My-Zsh is done installing\033[0m"
+echo -e "\033[1m\033[5mType \"exit\" and hit enter if Oh-My-Zsh is done installing.\033[0m"
 echo
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" > /dev/null
 
@@ -29,9 +30,8 @@ git clone https://github.com/denysdovhan/spaceship-prompt.git ${ZSH_CUSTOM:-~/.o
 
 # Install pygments
 pip install Pygments
-pip3 install Pygments
 
-cp dotfiles/.zshrc ~/.zshrc
+# Source all the above
 source ~/.zshrc
 
 # colorls
@@ -39,5 +39,5 @@ gem install colorls
 rbenv rehash && rehash
 compaudit | xargs chmod g-w,o-w
 
-# Switch to Zsh
+# Source again for good measure
 source ~/.zshrc

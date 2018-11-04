@@ -241,7 +241,7 @@ for app in "Google Chrome Canary" \
   "Photos" \
   "Safari" \
   "Spectacle" \
-  "Sublime Text"
+  "Sublime Text" \
   "Terminal" \
   "Transmission"; do
   killall "${app}" &> /dev/null
