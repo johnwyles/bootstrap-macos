@@ -5,7 +5,7 @@
 #export GITHUB_USERNAME="your_github_username"
 # Execute:
 #  export GITHUB_USERNAME=${GITHUB_USERNAME:="johnwyles"}
-#  sh -c "$(curl -fsSL https://raw.githubusercontent.com/$GITHUB_USERNAME/bootstrap-macos/master/remote_install.sh)"
+#  curl -fsSL https://raw.githubusercontent.com/$GITHUB_USERNAME/bootstrap-macos/master/remote_install.sh | bash
 
 # Ask for the administrator password upfront
 sudo -v
@@ -15,16 +15,17 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 GITHUB_USERNAME=${GITHUB_USERNAME:="johnwyles"}
 # Update the OS and Install Xcode Tools
 echo
-echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running update of macOS: ./setup.sh"
-echo "    (restart if needed and run this script again): ./setup.sh"
+echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running update of macOS: ./remote_install.sh"
+echo "    (restart if needed and run this script again): ./remote_install.sh"
 echo
 sudo softwareupdate -ia --verbose
 
 # Xcode CLI tools
 echo
 echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of Xcode CLI tools:"
-echo    "./setup.sh"
+echo    "./remote_install.sh"
 echo
+
 # Install Xcode Command Line Tools
 if ! $(xcode-select -p &>/dev/null); then
   xcode-select --install &>/dev/null
@@ -33,6 +34,7 @@ if ! $(xcode-select -p &>/dev/null); then
     sleep 5
   done
 fi
+
 # Accept the Xcode/iOS license agreement
 if ! $(sudo xcodebuild -license status); then
   sudo xcodebuild -license accept
@@ -42,6 +44,7 @@ else
   exit
 fi
 
+# Get the code from the git fork and run setup.sh
 git clone git@github.com:$GITHUB_USERNAME/bootstrap-macos.git ~/.bootstrap-macos
 pushd ~/.bootstrap-macos
 ./setup.sh
