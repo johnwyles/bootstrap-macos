@@ -55,20 +55,20 @@ function runSetup() {
   echo
   sudo softwareupdate -ia --verbose
 
-  # Xcode CLI tools
-  echo
-  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of Xcode CLI tools:"
-  echo    "./setup.sh"
-  echo
   # Install Xcode Command Line Tools
   if ! $(xcode-select -p &>/dev/null); then
+    echo
+    echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of Xcode CLI tools:"
+    echo    "./setup.sh"
+    echo
     xcode-select --install &>/dev/null
     # Wait until the Xcode Command Line Tools are installed
     until $(xcode-select -p &>/dev/null); do
       sleep 5
     done
   fi
-  # Accept the Xcode/iOS license agreement
+
+  # Accept the Xcode license agreement
   if ! $(sudo xcodebuild -license status); then
     sudo xcodebuild -license accept
   else

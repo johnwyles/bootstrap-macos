@@ -20,14 +20,12 @@ echo "    (restart if needed and run this script again): ./remote_install.sh"
 echo
 sudo softwareupdate -ia --verbose
 
-# Xcode CLI tools
-echo
-echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of Xcode CLI tools:"
-echo    "./remote_install.sh"
-echo
-
 # Install Xcode Command Line Tools
 if ! $(xcode-select -p &>/dev/null); then
+  echo
+  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of Xcode CLI tools:"
+  echo    "./remote_install.sh"
+  echo
   xcode-select --install &>/dev/null
   # Wait until the Xcode Command Line Tools are installed
   until $(xcode-select -p &>/dev/null); do
@@ -35,8 +33,12 @@ if ! $(xcode-select -p &>/dev/null); then
   done
 fi
 
-# Accept the Xcode/iOS license agreement
+# Accept the Xcode license agreement
 if ! $(sudo xcodebuild -license status); then
+  echo
+  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Accepting the agreement for Xcode CLI:"
+  echo    "./remote_install.sh"
+  echo
   sudo xcodebuild -license accept
 else
   echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m You must install the Xcode CLI tools first"
