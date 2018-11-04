@@ -51,7 +51,7 @@ This is the simplest way to get started if you like the default settings found i
 #export GITHUB_USERNAME="your_github_username"
 # Execute:
   export GITHUB_USERNAME=${GITHUB_USERNAME:="johnwyles"}
-  curl -fsSL https://raw.githubusercontent.com/$GITHUB_USERNAME/bootstrap-macos/master/remote_install.sh | bash
+  bash -c "$(curl -fsSL https://raw.githubusercontent.com/$GITHUB_USERNAME/bootstrap-macos/master/remote_install.sh)"
 ```
 
 

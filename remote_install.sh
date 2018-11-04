@@ -5,7 +5,7 @@
 #export GITHUB_USERNAME="your_github_username"
 # Execute:
 #  export GITHUB_USERNAME=${GITHUB_USERNAME:="johnwyles"}
-#  curl -fsSL https://raw.githubusercontent.com/$GITHUB_USERNAME/bootstrap-macos/master/remote_install.sh | bash
+#  bash -c "$(curl -fsSL https://raw.githubusercontent.com/$GITHUB_USERNAME/bootstrap-macos/master/remote_install.sh)"
 
 # Ask for the administrator password upfront
 sudo -v
