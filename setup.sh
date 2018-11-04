@@ -71,6 +71,10 @@ function runSetup() {
   # Accept the Xcode/iOS license agreement
   if ! $(sudo xcodebuild -license status); then
     sudo xcodebuild -license accept
+  else
+    echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m You must install the Xcode CLI tools first"
+    open "https://developer.apple.com/downloads/more"
+    exit
   fi
 
   # Install additional required components
