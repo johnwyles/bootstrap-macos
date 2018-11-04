@@ -99,6 +99,13 @@ function runSetup() {
   echo    "  ./scripts/cli_core.sh"
   echo
   ( ./scripts/cli_core.sh )
+  
+  # Setup Java
+  echo
+  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of Java:"
+  echo    "  ./scripts/programming/java.sh"
+  echo
+  ( ./scripts/programming/java.sh )
 
   # Install Hacker Tools
   echo
@@ -141,13 +148,6 @@ function runSetup() {
   echo    "  ./scripts/programming/php.sh"
   echo
   ( ./scripts/programming/php.sh )
-
-  # Setup Java
-  echo
-  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of Java:"
-  echo    "  ./scripts/programming/java.sh"
-  echo
-  ( ./scripts/programming/java.sh )
 
   # Setup Go
   echo

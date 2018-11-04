@@ -13,3 +13,6 @@ pyenv global $PYTHON_LATEST $PYTHON2_LATEST
 
 # Install pip
 curl https://bootstrap.pypa.io/get-pip.py | sudo python
+
+pip install virtualenv
+pip install virtualenvwrapper

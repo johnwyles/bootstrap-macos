@@ -49,3 +49,4 @@ brew install tmux
 # brew install zopfli
 # brew install pkg-config libffi
 # brew install pandoc
+brew install zlib
