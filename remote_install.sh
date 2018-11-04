@@ -47,5 +47,6 @@ fi
 # Get the code from the git fork and run setup.sh
 git clone git@github.com:$GITHUB_USERNAME/bootstrap-macos.git ~/.bootstrap-macos
 pushd ~/.bootstrap-macos
-./setup.sh
+  ./setup.sh
 popd
+
