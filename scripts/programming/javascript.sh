@@ -9,10 +9,9 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | 
 source ~/.bashrc
 source ~/.bash_profile
 
+# Install Node and NPM
 nvm install node
 nvm install-latest-npm
-
-# Install and Upgrade NPM
 nvm use node
 npm install -g npm
 
