@@ -13,7 +13,8 @@ function backupDotfiles() {
     echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m A backup of your dotfiles (~/.*)"
     echo    "already exists in your home directory! We cannot run this script"
     echo    "safely as it will overwrite an existing backup or do something you"
-    echo    "may not like. Exiting."
+    echo    "may not like (e.g. ~/bootstrap-macos-dotfiles-backup exists)."
+    echo    "Exiting."
     echo
     exit 1
   fi
@@ -21,7 +22,7 @@ function backupDotfiles() {
   rsync --exclude ".DS_Store" \
     --exclude ".Trash" \
     --exclude ".CFUserTextEncoding" \
-    --exclude ".bootstrap-macos-dotfiles-backup" \
+    --exclude ".bootstrap-macos*" \
     -avh \
     --no-perms \
     ~/.??* ~/.bootstrap-macos-dotfiles-backup/
