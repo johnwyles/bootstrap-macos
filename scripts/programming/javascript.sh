@@ -20,4 +20,4 @@ brew install watchman
 npm install -g react-native-cli
 
 # Install the AWS SDK
-npm install aws-sdk
+npm install -g aws-sdk

@@ -40,48 +40,24 @@ function copyDotfiles() {
 # Run all of the shell scripts for setting up the machine
 function runSetup() {
   # Backup dotfiles
+  echo
   echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Backing up ~/.* files to "
   echo    "~/.bootstrap-macos-dotfiles-backup/: ./setup.sh"
+  echo
   backupDotfiles
 
   # Copy dotfiles
+  echo
   echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Copying dotfiles/.* to ~/: ./setup.sh"
+  echo
   copyDotfiles
 
-  # Update the OS and Install Xcode Tools
+  # Install Xcode CLI tools
   echo
-  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running update of macOS: ./setup.sh"
-  echo "    (restart if needed and run this script again): ./setup.sh"
+  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of Xcode CLI tools:"
+  echo    "  ./scripts/xcode_cli_tools.sh"
   echo
-  sudo softwareupdate -ia --verbose
-
-  # Install Xcode Command Line Tools
-  if ! $(xcode-select -p &>/dev/null); then
-    echo
-    echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of Xcode CLI tools:"
-    echo    "./setup.sh"
-    echo
-    xcode-select --install &>/dev/null
-    # Wait until the Xcode Command Line Tools are installed
-    until $(xcode-select -p &>/dev/null); do
-      sleep 5
-    done
-  fi
-
-  # Accept the Xcode license agreement
-  if ! $(sudo xcodebuild -license status); then
-    sudo xcodebuild -license
-  else
-    echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m You must install the Xcode CLI tools first"
-    open "https://developer.apple.com/downloads/more"
-    exit
-  fi
-
-  # Install additional required components
-  # /Applications/Xcode.app/Contents/MacOS/Xcode -installComponents
-  for pkg in /Applications/Xcode.app/Contents/Resources/Packages/*.pkg; do
-    sudo installer -pkg "$pkg" -target /
-  done
+  ( ./scripts/xcode_cli_tools.sh )
 
   # Setup macOS Preferences and Settings
   echo
