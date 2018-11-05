@@ -15,9 +15,9 @@ source ~/.bash_profile
 
 # Setup Bash-It plugins
 bash-it enable plugin alias-completion aws base battery docker-compose \
-    docker-machine docker git-subrepo git go history java javascript node \
-    nodenv nvm osx-timemachine osx powerline pyenv python rails rbenv \
-    ruby ssh sshagent tmux tmuxinator virtualenv
+    docker git-subrepo git go history java javascript node node nvm \
+    osx-timemachine osx powerline pyenv python rails rbenv ruby ssh sshagent \
+    tmux tmuxinator virtualenv
 
 # Install colorls
 gem install colorls
