@@ -21,6 +21,11 @@ pyenv global $PYTHON_LATEST $PYTHON2_LATEST
 eval "$(pyenv init -)"
 pyenv rehash
 
+pyenv global $PYTHON_LATEST $PYTHON2_LATEST
+pip install --upgrade pip
+pyenv global $PYTHON2_LATEST $PYTHON_LATEST
+pip install --upgrade pip
+pyenv global $PYTHON_LATEST
 
 # Install pip
 #curl -fsSL https://bootstrap.pypa.io/get-pip.py | sudo python
