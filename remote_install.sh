@@ -39,7 +39,7 @@ if ! $(sudo xcodebuild -license status); then
   echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Accepting the agreement for Xcode CLI:"
   echo    "./remote_install.sh"
   echo
-  sudo xcodebuild -license accept
+  sudo xcodebuild -license
 else
   echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m You must install the Xcode CLI tools first"
   open "https://developer.apple.com/downloads/more"
