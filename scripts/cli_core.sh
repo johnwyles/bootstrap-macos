@@ -36,9 +36,11 @@ brew install git-extras
 # brew install imagemagick --with-webp
 # brew install lua
 # brew install lynx
+brew install openssl
 # brew install p7zip
 # brew install pigz
 # brew install pv
+brew install readline
 # brew install rename
 # brew install rhino
 # brew install speedtest_cli

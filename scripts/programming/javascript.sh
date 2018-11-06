@@ -11,8 +11,8 @@ source ~/.bash_profile
 
 # Install Node and NPM
 nvm install node
-nvm install-latest-npm
 nvm use node
+nvm install-latest-npm
 npm install -g npm
 
 # React

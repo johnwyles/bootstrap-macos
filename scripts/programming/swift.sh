@@ -54,7 +54,7 @@ case $XCODE_FILE_EXTENSION in
       echo -n "."
       sleep 1
     done
-    sudo rsync -avh --no-perms ~/Downloads/Xcode.app /Applications/
+    sudo rsync -ah --no-perms ~/Downloads/Xcode.app /Applications/
     rm -rf ~/Downloads/Xcode.app
     # rm -f "${XCODE_FILE}"
   ;;
@@ -63,6 +63,8 @@ case $XCODE_FILE_EXTENSION in
     echo ".dmg or .xip."
   ;;
 esac
+
+sudo xcodebuild -license accept
 
 # We might as well try to install mas since we have Xcode now
 brew install mas

@@ -49,3 +49,10 @@ for pkg in /Applications/Xcode.app/Contents/Resources/Packages/*.pkg; do
   sudo installer -pkg "$pkg" -target /
 done
 
+# Install macOS SDK headers
+if [ -f /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg ]; then
+  sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
+fi
+
+# Accept the Xcode license
+sudo xcodebuild -license accept
