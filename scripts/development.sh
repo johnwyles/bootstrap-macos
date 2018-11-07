@@ -1,13 +1,5 @@
 #!/usr/bin/env bash
 
-# Vim
-brew install vim --with-cscope --with-lua -with-python3 --override-system-vim
-git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
-sh ~/.vim_runtime/install_awesome_vimrc.sh
-
-# Install jq
-brew install jq
-
 # Cyberduck
 brew cask install --appdir="/Applications" cyberduck
 # Appcleaner
@@ -40,7 +32,8 @@ killall iTerm2
 open "./files/Dracula.itermcolors"
 open "./files/Solarized_Dark.itermcolors"
 open "./files/termk.itermcolors"
-cp ./files/Dracula.itermprofile ~/Library/Application Support/iTerm2/DynamicProfiles/
+mkdir -p ~/Library/Application\ Support/iTerm2/DynamicProfiles/
+cp ./files/Dracula.itermprofile.json ~/Library/Application\ Support/iTerm2/DynamicProfiles/
 # Only use UTF-8 in Terminal.app
 defaults write com.apple.terminal StringEncodings -array 4
 # Use a modified version of the Solarized Dark theme by default in Terminal.app
@@ -107,7 +100,7 @@ defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 ################################################################################
 brew cask install --appdir="/Applications" android-studio
 brew cask install --appdir="/Applications" android-sdk
-brew cask install --appdir="/Applications" android-platform-tools   
+brew cask install --appdir="/Applications" android-platform-tools
 
 
 ################################################################################
@@ -119,7 +112,7 @@ brew install terraform
 brew cask install --appdir="/Applications" vagrant
 brew cask install --appdir="/Applications" vagrant-manager
 brew cask install --appdir="/Applications" virtualbox
-brew cask install --appdir="/Applications" vmware-fusion
+# brew cask install --appdir="/Applications" vmware-fusion
 brew install heroku/brew/heroku && heroku update
 
 

@@ -34,6 +34,7 @@ brew install git-flow
 brew install git-extras
 # brew install hub
 # brew install imagemagick --with-webp
+brew install jq
 # brew install lua
 # brew install lynx
 brew install openssl
@@ -47,6 +48,12 @@ brew install readline
 # brew install ssh-copy-id
 # brew install tree
 brew install tmux
+
+# Vim
+brew install vim --with-lua --with-override-system-vi
+git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+sh ~/.vim_runtime/install_awesome_vimrc.sh
+
 # brew install webkit2png
 # brew install zopfli
 # brew install pkg-config libffi
