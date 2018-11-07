@@ -128,11 +128,13 @@ brew cask install visual-studio-code
 # Sublime                                                                      #
 ################################################################################
 brew cask install --appdir="/Applications" sublime-text
-# git clone https://github.com/dracula/sublime.git ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Dracula\ Color\ Scheme
+mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages
+git clone https://github.com/dracula/sublime.git ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Dracula\ Color\ Scheme
 git clone https://github.com/equinusocio/material-theme.git ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/material-theme
 git clone https://github.com/wbond/package_control.git ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/package_control
 git clone https://github.com/braver/Solarized.git ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Solarized
-cp -r ./files/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null
+cp -r ./files/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings 2> /dev/null
 
 
 ################################################################################
@@ -140,7 +142,7 @@ cp -r ./files/Preferences.sublime-settings ~/Library/Application\ Support/Sublim
 ################################################################################
 brew cask install --appdir="/Applications" atom
 # Extra
-apm install sort
+apm install sort-lines
 apm install tabs-to-spaces
 # Git
 apm install git-plus
