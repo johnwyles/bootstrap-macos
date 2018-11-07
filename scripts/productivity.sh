@@ -169,6 +169,7 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 ################################################################################
 brew cask install --appdir="/Applications" macdown
 git clone https://github.com/dracula/macdown
+mkdir -p ~/Library/Application\ Support/MacDown/Themes/
 cp macdown/Dracula.style ~/Library/Application\ Support/MacDown/Themes/
 rm -rf macdown
 # Fancy AppleScript to activate the "Dracula" theme

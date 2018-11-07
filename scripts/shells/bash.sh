@@ -19,10 +19,10 @@ bash-it enable plugin alias-completion aws base battery docker-compose \
     osx-timemachine osx powerline pyenv python rails rbenv ruby ssh sshagent \
     tmux tmuxinator virtualenv
 
-# Install colorls
-gem install colorls
-rbenv rehash && rehash
-compaudit | xargs chmod g-w,o-w
 
 # Finally reload our configuration
 bash-it reload
+
+# Install colorls
+gem install colorls
+rbenv rehash

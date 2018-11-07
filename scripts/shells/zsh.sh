@@ -36,7 +36,7 @@ source ~/.zshrc
 
 # colorls
 gem install colorls
-rbenv rehash && rehash
+rbenv rehash
 compaudit | xargs chmod g-w,o-w
 
 # Source again for good measure

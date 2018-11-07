@@ -38,6 +38,32 @@ function copyDotfiles() {
     dotfiles/.??* ~/
 }
 
+# Pull up System Preferences > Security & Privacy > Privacy > Accessibility
+function addTerminalToPrivacyAccessibility() {
+  echo
+  echo -e "Click \"\033[1mOK\033[0m\" in the following popup so we can get you "
+  echo    "    where you need to be. Then press any key to continue..."
+  read -p "" -n 1
+
+  osascript <<EOD
+tell application "System Preferences"
+	activate
+	set current pane to pane "com.apple.preference.security"
+  reveal anchor "Privacy_Accessibility" of pane id "com.apple.preference.security"
+end tell
+EOD
+
+  echo
+  echo -e "Click the \033[1mLOCK\033[0m icon in the bottom left"
+  echo -e "Then click the \"\033[1m+\033[0m\" in System Preference > "
+  echo    "    Security & Privacy > Privacy > Accessibility"
+  echo -e "Enter your password and click \"\033[1m+\033[0m\""
+  echo    "Then navigate to Applications > Utilities > Terminal and"
+  echo -e "    click the \033[1mOpen\033[0m button"
+  echo    "Press any key to continue..."
+  read -p "" -n 1
+}
+
 # Run all of the shell scripts for setting up the machine
 function runSetup() {
   # Backup dotfiles
@@ -52,6 +78,12 @@ function runSetup() {
   echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Copying dotfiles/.* to ~/: ./setup.sh"
   echo
   copyDotfiles
+
+  # Get the permissions we will need manually
+  echo
+  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Adding Terminal.app to be able to execute applescript: ./setup.sh"
+  echo
+  addTerminalToPrivacyAccessibility
 
   # Install Xcode CLI tools
   echo
