@@ -20,6 +20,9 @@ open "./files/Solarized_Dark.terminal"
 
 # Hyper
 brew cask install --appdir="/Applications" hyper
+/Applications/Hyper.app/Contents/MacOS/Hyper &
+sleep 5
+killall Hyper
 hyper install hyperpower
 hyper install hyper-electron-highlighter
 hyper install hyper-dracula
