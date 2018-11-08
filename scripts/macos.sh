@@ -545,7 +545,6 @@ for app in "Activity Monitor" \
   "Contacts" \
   "Dock" \
   "Finder" \
-  "Sublime Text" \
   "SystemUIServer" \
   "iCal"; do
   killall "${app}" &> /dev/null

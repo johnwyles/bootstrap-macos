@@ -2,8 +2,8 @@
 
 # Update the OS and Install Xcode Tools
 echo
-echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running update of macOS: ./remote_install.sh"
-echo "    (restart if needed and run this script again): ./remote_install.sh"
+echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running update of macOS: ./scripts/xcode_cli_tools.sh"
+echo "    (restart if needed and run again): ./scripts/xcode_cli_tools.sh"
 echo
 sudo softwareupdate -ia --verbose
 
@@ -11,7 +11,7 @@ sudo softwareupdate -ia --verbose
 if ! $(xcode-select -p &>/dev/null); then
   echo
   echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of Xcode CLI tools:"
-  echo    "./remote_install.sh"
+  echo    "./scripts/xcode_cli_tools.sh"
   echo
   xcode-select --install &>/dev/null
   # Wait until the Xcode CLI tools are done installing
@@ -31,16 +31,14 @@ if [ ! -d "$(xcode-select -print-path)" ]; then
 fi
 
 # Attempt to accept the Xcode license agreement
-if ! $(sudo xcodebuild -license status); then
-  echo
-  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Attempting to accept the agreement for Xcode:"
-  echo    "./remote_install.sh"
-  echo
-  sudo xcodebuild -license
-else
-  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m You must install the Xcode first"
+echo
+echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Attempting to accept the agreement for Xcode:"
+echo    "./scripts/xcode_cli_tools.sh"
+echo
+if ! sudo xcodebuild -license accept; then
+  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m You SHOULD install the Xcode first but continuing..."
   open "https://developer.apple.com/downloads/more"
-  exit 1
+  # exit 1
 fi
 
 # Install additional required components
@@ -53,6 +51,3 @@ done
 if [ -f /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg ]; then
   sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
 fi
-
-# Accept the Xcode license
-sudo xcodebuild -license accept

@@ -174,6 +174,7 @@ cp macdown/Dracula.style ~/Library/Application\ Support/MacDown/Themes/
 rm -rf macdown
 # Fancy AppleScript to activate the "Dracula" theme
 killall MacDown
+sleep 5
 /Applications/MacDown.app/Contents/MacOS/MacDown &
 osascript <<EOD
 activate application "MacDown"

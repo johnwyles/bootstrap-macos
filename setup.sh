@@ -53,11 +53,10 @@ tell application "System Preferences"
 end tell
 EOD
 
-  echo
-  echo -e "Click the \033[1mLOCK\033[0m icon in the bottom left"
-  echo -e "Then click the \"\033[1m+\033[0m\" in System Preference > "
-  echo    "    Security & Privacy > Privacy > Accessibility"
-  echo -e "Enter your password and click \"\033[1m+\033[0m\""
+  echo    "In System Preferences > Security & Privacy > Privacy >"
+  echo    "    Accessibility >"
+  echo -e "Click the \xf0\x9f\x94\x92 (\033[1mLOCK\033[0m) icon in the bottom left"
+  echo -e "Enter your password and click the \"\033[1m+\033[0m\" (\033[1mPLUS\033[0m) button"
   echo    "Then navigate to Applications > Utilities > Terminal and"
   echo -e "    click the \033[1mOpen\033[0m button"
   echo    "Press any key to continue..."
@@ -72,6 +71,12 @@ function runSetup() {
   echo    "~/.bootstrap-macos-dotfiles-backup/: ./setup.sh"
   echo
   backupDotfiles
+
+  # Remove Bash-It
+  rm -rf ~/.bash_it
+
+  # Remove Zsh
+  rm -rf ~/.oh-my-zsh
 
   # Copy dotfiles
   echo
