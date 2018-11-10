@@ -3,28 +3,23 @@
 ################################################################################
 # macOS Extras                                                                 #
 ################################################################################
-brew cask install --appdir="/Applications" alfred
-brew cask install --appdir="/Applications" bartender
-brew cask install --appdir="/Applications" dropbox
-brew cask install --appdir="/Applications" evernote
-brew cask install --appdir="/Applications" forklift
-brew cask install --appdir="/Applications" java
-brew cask install --appdir="/Applications" spotify
-
 # Install 1password
 # brew cask install --appdir="/Applications" 1password
 
-# Install Spectacle
-brew cask install --appdir="/Applications" spectacle
-cp -r ./files/Shortcuts.json ~/Library/Application\ Support/Spectacle/Shortcuts.json 2> /dev/null
+# Install Alfred
+brew cask install --appdir="/Applications" alfred
 
-# Install QuickLook Plugins: https://github.com/sindresorhus/quick-look-plugins
-brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize \
-    webpquicklook suspicious-package qlprettypatch quicklookase qlvideo \
-    quicklook-csv
+# Install Bartender
+brew cask install --appdir="/Applications" bartender
 
-# Install XQuartz
-brew cask install --appdir="~/Applications" xquartz
+# Install Dropbox
+brew cask install --appdir="/Applications" dropbox
+
+# Install Evernote
+brew cask install --appdir="/Applications" evernote
+
+# Install Firefox
+brew cask install --appdir="/Applications" firefox
 
 # Install GIMP
 # brew cask install --appdir="/Applications" gimp
@@ -32,13 +27,32 @@ brew cask install --appdir="~/Applications" xquartz
 # Install Inkscape
 # brew cask install --appdir="/Applications" inkscape
 
+# Install Java
+brew cask install --appdir="/Applications" java
+
+# Install QuickLook Plugins: https://github.com/sindresorhus/quick-look-plugins
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize \
+    webpquicklook suspicious-package qlprettypatch quicklookase qlvideo \
+    quicklook-csv
+
 # Install MacTex
 # brew cask install --appdir="/Applications" mactex
 
-################################################################################
-# Firefox                                                                      #
-################################################################################
-brew cask install --appdir="/Applications" firefox
+# Install Resilio Sync
+brew cask install --appdir="/Applicaitons" resilio-sync
+
+# Install Spectacle
+brew cask install --appdir="/Applications" spectacle
+cp -r ./files/Shortcuts.json ~/Library/Application\ Support/Spectacle/Shortcuts.json 2> /dev/null
+
+# Install Spotify
+brew cask install --appdir="/Applications" spotify
+
+# Install VLC
+brew cask install --appdir="/Applications" vlc
+
+# Install XQuartz
+brew cask install --appdir="~/Applications" xquartz
 
 ################################################################################
 # Safari                                                                       #
@@ -196,11 +210,6 @@ EOD
 killall MacDown
 
 ################################################################################
-# VLC                                                                          #
-################################################################################
-brew cask install --appdir="/Applications" vlc
-
-################################################################################
 # Photos.app                                                                   #
 ################################################################################
 # Prevent Photos from opening automatically when devices are plugged in
@@ -237,6 +246,7 @@ defaults write org.m0k.transmission RandomPort -bool true
 
 for app in "Google Chrome Canary" \
   "Google Chrome" \
+  "MacDown" \
   "Mail" \
   "Messages" \
   "Opera" \
