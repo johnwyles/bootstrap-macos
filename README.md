@@ -138,7 +138,8 @@ This project was created largely because I became frustrated with a lot of the [
     * `VirtualBox`
     * `VMware Fusion`
 * Programming Languages
-    * `go` (includes: `godoc`, `golint`)
+    * `arduino`
+    * `go` (includes: `godoc`, `golint`, `protobuf`, `micro`, `gRPC`)
     * `java`
     * `javascript` (includes: `nvm`, `npm`, `node`, `react`)
     * `php`
