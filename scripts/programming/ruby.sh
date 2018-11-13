@@ -18,7 +18,7 @@ if [ -d "$(xcrun --show-sdk-path)/usr/include)" ]; then
   export CFLAGS="$CFLAGS -I$(xcrun --show-sdk-path)/usr/include"
 fi
 
-rbenv install $RUBY_LATEST
+RUBY_CONFIGURE_OPTS=--with-readline-dir="$(brew --prefix readline)" rbenv install  $RUBY_LATEST
 rbenv global $RUBY_LATEST
 eval "$(rbenv init -)"
 
@@ -28,4 +28,4 @@ gem install bundler
 # Install the AWS gem
 gem install aws-sdk
 
-rbenv rehash 
+rbenv rehash

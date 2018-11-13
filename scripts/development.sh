@@ -147,16 +147,22 @@ brew cask install --appdir="/Applications" atom
 # Extra
 apm install sort-lines
 apm install tabs-to-spaces
+# Docker
+apm install language-docker
+apm install linter-docker
 # Git
 apm install git-plus
 # Go
 apm install go-debug
 apm install go-plus
+apm install language-protobuf
 # Java
 apm install autocomplete-java
 # Javascript
 apm install atom-typescript
 apm install react
+# Jenkins
+apm install language-jenkins
 # Swift
 apm install language-swift
 # Rust
