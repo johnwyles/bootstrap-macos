@@ -216,6 +216,13 @@ function runSetup() {
   echo
   ( ./scripts/development.sh )
 
+  # Install Arduino Tools
+  echo
+  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of Arduino tools:"
+  echo    "  ./scripts/programming/arduino.sh"
+  echo
+  ( ./scripts/programming/arduino.sh )
+
   # Setup AWS
   echo
   echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running setup of AWS:"
