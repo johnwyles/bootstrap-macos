@@ -10,7 +10,6 @@ go get github.com/nsf/gocode
 brew install protobuf
 go get github.com/micro/protobuf/{proto,protoc-gen-go}
 go get github.com/micro/protoc-gen-micro
-go get golang.org/x/net/context
 go get google.golang.org/grpc
 
 # Install the AWS SDK
