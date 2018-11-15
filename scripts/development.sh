@@ -145,6 +145,7 @@ cp -r ./files/Preferences.sublime-settings ~/Library/Application\ Support/Sublim
 ################################################################################
 brew cask install --appdir="/Applications" atom
 # Extra
+apm install atom-ide-ui
 apm install sort-lines
 apm install tabs-to-spaces
 # Docker
@@ -155,6 +156,7 @@ apm install git-plus
 # Go
 apm install go-debug
 apm install go-plus
+apm install go-signature-statusbar
 apm install language-protobuf
 # Java
 apm install autocomplete-java
@@ -169,7 +171,7 @@ apm install language-swift
 apm install language-rust
 apm install busy-signal
 apm install intentions
-apm install linter
+# apm install linter
 apm install linter-rust
 apm install linter-ui-default
 # Fun
