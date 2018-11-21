@@ -33,8 +33,7 @@ pyenv global $PYTHON_LATEST $PYTHON2_LATEST
 # Install pip from web
 #curl -fsSL https://bootstrap.pypa.io/get-pip.py | sudo python
 
-# Install virtualenv and virtualenvwrapper
+# Install virtualenv
 pip install virtualenv
-pip install virtualenvwrapper
 
 pyenv rehash
