@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export BOOTSTRAP_MACOS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
 # Ask for the administrator password upfront
 sudo -v
 # Keep-alive: update existing `sudo` time stamp until we finish
@@ -7,9 +9,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Backup the dotfiles that already exist
 function backupDotfiles() {
-  if ! test -d ~/.bootstrap-macos-dotfiles-backup; then
-    mkdir -p ~/.bootstrap-macos-dotfiles-backup
-  else
+  if test -d ~/.bootstrap-macos-dotfiles-backup; then
     echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m A backup of your dotfiles (~/.*)"
     echo    "already exists in your home directory! We cannot run this script"
     echo    "safely as it will overwrite an existing backup or do something you"
@@ -19,15 +19,15 @@ function backupDotfiles() {
     exit 1
   fi
 
-  mkdir -p ~/.bootstrap-macos-dotfiles-backup/
+  mkdir -p ~/.bootstrap-macos-dotfiles-backup
   for filename in `/bin/ls -a dotfiles/`; do
-    cp -R dotfiles/$filename ~/.bootstrap-macos-dotfiles-backup/
+    /usr/bin/rsync -r dotfiles/$filename ~/.bootstrap-macos-dotfiles-backup/
   done
 }
 
 # Copy over the dotfiles to home
 function copyDotfiles() {
-  cp -R dotfiles/* ~/
+  /usr/bin/rsync -r dotfiles/* ~/
 }
 
 # Pull up System Preferences > Security & Privacy > Privacy > Accessibility
