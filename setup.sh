@@ -19,23 +19,15 @@ function backupDotfiles() {
     exit 1
   fi
 
-  rsync --exclude ".DS_Store" \
-    --exclude ".Trash" \
-    --exclude ".CFUserTextEncoding" \
-    --exclude ".bootstrap-macos*" \
-    -avh \
-    --no-perms \
-    ~/.??* ~/.bootstrap-macos-dotfiles-backup/
+  mkdir -p ~/.bootstrap-macos-dotfiles-backup/
+  for filename in `/bin/ls -a dotfiles/`; do
+    cp -R dotfiles/$filename ~/.bootstrap-macos-dotfiles-backup/
+  done
 }
 
 # Copy over the dotfiles to home
 function copyDotfiles() {
-  rsync --exclude ".DS_Store" \
-    --exclude ".Trash" \
-    --exclude ".CFUserTextEncoding" \
-    -avh \
-    --no-perms \
-    dotfiles/.??* ~/
+  cp -R dotfiles/* ~/
 }
 
 # Pull up System Preferences > Security & Privacy > Privacy > Accessibility
