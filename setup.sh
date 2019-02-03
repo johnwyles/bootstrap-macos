@@ -65,24 +65,9 @@ EOD
 
 # Run all of the shell scripts for setting up the machine
 function runSetup() {
-  # Backup dotfiles
-  echo
-  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Backing up ~/.* files to "
-  echo    "~/.bootstrap-macos-dotfiles-backup/: ./setup.sh"
-  echo
-  backupDotfiles
+  # Backup users dotfiles and copy over our dotfiles
+  ( ./scripts/dotfiles.sh )
 
-  # Remove Bash-It
-  rm -rf ~/.bash_it
-
-  # Remove Zsh
-  rm -rf ~/.oh-my-zsh
-
-  # Copy dotfiles
-  echo
-  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Copying dotfiles/.* to ~/: ./setup.sh"
-  echo
-  copyDotfiles
 
   # Get the permissions we will need manually
   echo
