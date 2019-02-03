@@ -101,10 +101,17 @@ defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 ################################################################################
 # Android                                                                      #
 ################################################################################
+brew install ant
+brew install maven
+brew install gradle
 brew cask install --appdir="/Applications" android-studio
 brew cask install --appdir="/Applications" android-sdk
+brew cask install --appdir="/Applications" android-ndk
 brew cask install --appdir="/Applications" android-platform-tools
-
+brew cask reinstall android-platform-tools # workaround for now
+brew cask install --appdir="/Applications" intel-haxm
+sdkmanager "platform-tools" "platforms;android-23"
+sdkmanager "build-tools;23.0.1"
 
 ################################################################################
 # Install Docker, Kubernetes, Heroku, Vagrant, VirtualBox                      #
@@ -117,7 +124,6 @@ brew cask install --appdir="/Applications" vagrant-manager
 brew cask install --appdir="/Applications" virtualbox
 # brew cask install --appdir="/Applications" vmware-fusion
 brew install heroku/brew/heroku && heroku update
-
 
 ################################################################################
 # Other IDEs                                                                   #
