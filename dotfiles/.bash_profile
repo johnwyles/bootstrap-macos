@@ -72,6 +72,16 @@ source "$BASH_IT"/bash_it.sh
 # Autojump
 source /usr/local/share/autojump/autojump.bash
 
+################################################################################
+# Go                                                                           #
+################################################################################
+export GOPATH="${HOME}/go"
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+export GO111MODULE=on
+test -d "${GOPATH}" || mkdir "${GOPATH}"
+test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
+
 # Android
 export ANT_HOME=/usr/local/opt/ant
 export MAVEN_HOME=/usr/local/opt/maven

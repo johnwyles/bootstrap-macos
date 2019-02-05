@@ -36,7 +36,7 @@ open "./files/Dracula.itermcolors"
 open "./files/Solarized_Dark.itermcolors"
 open "./files/termk.itermcolors"
 mkdir -p ~/Library/Application\ Support/iTerm2/DynamicProfiles/
-cp ./files/Dracula.itermprofile.json ~/Library/Application\ Support/iTerm2/DynamicProfiles/
+cp -f ./files/Dracula.itermprofile.json ~/Library/Application\ Support/iTerm2/DynamicProfiles/
 # Only use UTF-8 in Terminal.app
 defaults write com.apple.terminal StringEncodings -array 4
 # Use a modified version of the Solarized Dark theme by default in Terminal.app
@@ -143,7 +143,7 @@ git clone https://github.com/dracula/sublime.git ~/Library/Application\ Support/
 git clone https://github.com/equinusocio/material-theme.git ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/material-theme
 git clone https://github.com/wbond/package_control.git ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/package_control
 git clone https://github.com/braver/Solarized.git ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Solarized
-cp -r ./files/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings 2> /dev/null
+cp -rf ./files/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings 2> /dev/null
 
 
 ################################################################################
