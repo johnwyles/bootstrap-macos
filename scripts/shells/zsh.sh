@@ -39,5 +39,7 @@ gem install colorls
 rbenv rehash
 compaudit | xargs chmod g-w,o-w
 
+cp $BOOTSTRAP_MACOS_DIR/dotfiles/.zshrc ~/
+
 # Source again for good measure
 source ~/.zshrc

@@ -14,17 +14,16 @@ function backupDotfiles() {
     exit 1
   fi
 
-  mkdir -p ~/.bootstrap-macos-dotfiles-backup/
-  for filename in `/bin/ls -a dotfiles/`; do
-    cp -R ~/.bash_it ~/.bootstrap-macos-dotfiles-backup/
-    cp -R ~/.oh-my-zsh ~/.bootstrap-macos-dotfiles-backup/
-    cp -R dotfiles/$filename ~/.bootstrap-macos-dotfiles-backup/
+  /usr/bin/rsync -r ~/.bash_it ~/.bootstrap-macos-dotfiles-backup/
+  /usr/bin/rsync -r ~/.oh-my-zsh ~/.bootstrap-macos-dotfiles-backup/
+  for filename in `ls -A $BOOTSTRAP_MACOS_DIR/dotfiles/`; do
+    /usr/bin/rsync -r $BOOTSTRAP_MACOS_DIR/dotfiles/$filename ~/.bootstrap-macos-dotfiles-backup/
   done
 }
 
 # Copy over the dotfiles to home
 function copyDotfiles() {
-  cp -R dotfiles/* ~/
+  /bin/cp -rf dotfiles/* ~/
 }
 
 # Backup dotfiles
