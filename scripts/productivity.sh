@@ -171,6 +171,7 @@ brew cask install --appdir="/Applications" skype
 brew cask install --appdir="/Applications" slack
 brew cask install --appdir="/Applications" telegram
 brew cask install --appdir="/Applications" viber
+brew cask install --appdir="/Applications" whatsapp
 # Disable automatic emoji substitution (i.e. use plain text smileys)
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false
 # Disable smart quotes as it's annoying for messages that contain code

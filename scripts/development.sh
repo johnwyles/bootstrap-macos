@@ -171,6 +171,9 @@ apm install atom-typescript
 apm install react
 # Jenkins
 apm install language-jenkins
+# Python
+apm install autocomplete-python
+apm install python-tools
 # Swift
 apm install language-swift
 # Rust
