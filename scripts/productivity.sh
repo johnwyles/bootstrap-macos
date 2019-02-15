@@ -168,7 +168,25 @@ defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnab
 ################################################################################
 brew cask install --appdir="/Applications" discord
 brew cask install --appdir="/Applications" skype
+
+# Slack (with dark theme)
 brew cask install --appdir="/Applications" slack
+if [ -f /Applications/Slack.app/Contents/Resources/app.asar.unpacked/src/static/ssb-interop.js ]; then
+  if ! grep -q 'slack-night-mode' /Applications/Slack.app/Contents/Resources/app.asar.unpacked/src/static/ssb-interop.js; then
+    cat <<-EOF >> /Applications/Slack.app/Contents/Resources/app.asar.unpacked/src/static/ssb-interop.js
+document.addEventListener("DOMContentLoaded", function() {
+  let tt__customCss = `.menu ul li a:not(.inline_menu_link) {color: #fff !important;}`
+  $.ajax({
+       url: "https://cdn.rawgit.com/laCour/slack-night-mode/master/css/raw/black.css",
+      success: function(css) {
+          $("<style></style>").appendTo("head").html(css + tt__customCss);
+      }
+ });
+});
+EOF
+  fi
+fi
+
 brew cask install --appdir="/Applications" telegram
 brew cask install --appdir="/Applications" viber
 brew cask install --appdir="/Applications" whatsapp
