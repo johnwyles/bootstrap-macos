@@ -158,6 +158,13 @@ function runSetup() {
   echo
   ( ./scripts/programming/rust.sh )
 
+  # Setup Erlang and Elixir
+  echo
+  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of Erlang and Elixir:"
+  echo    "  ./scripts/erlang.sh"
+  echo
+  ( ./scripts/programming/erlang.sh )
+
   # Setup Bash
   echo
   echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running setup of Bash:"

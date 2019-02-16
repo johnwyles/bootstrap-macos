@@ -183,5 +183,10 @@ apm install intentions
 # apm install linter
 apm install linter-rust
 apm install linter-ui-default
+# Erlang and Elixir
+apm install language-erlang
+apm install language-elixir
+apm install atom-elixir
+apm install linter-elixir
 # Fun
 apm install activate-power-mode
