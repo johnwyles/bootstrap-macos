@@ -203,9 +203,23 @@ function runSetup() {
   # Install Arduino Tools
   echo
   echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of Arduino tools:"
-  echo    "  ./scripts/programming/arduino.sh"
+  echo    "  ./scripts/arduino.sh"
   echo
-  ( ./scripts/programming/arduino.sh )
+  ( ./scripts/arduino.sh )
+
+  # Install Raspberry Pi Tools
+  echo
+  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of Raspberry Pi tools:"
+  echo    "  ./scripts/raspberrypi.sh"
+  echo
+  ( ./scripts/raspberrypi.sh )
+
+  # Install 3D Printing Tools
+  echo
+  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of 3D Printing tools:"
+  echo    "  ./scripts/3dprinting.sh"
+  echo
+  ( ./scripts/3dprinting.sh )
 
   # Setup AWS
   echo

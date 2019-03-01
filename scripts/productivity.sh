@@ -4,7 +4,7 @@
 # macOS Extras                                                                 #
 ################################################################################
 # Install 1password
-# brew cask install --appdir="/Applications" 1password
+brew cask install --appdir="/Applications" 1password
 
 # Install Alfred
 brew cask install --appdir="/Applications" alfred
