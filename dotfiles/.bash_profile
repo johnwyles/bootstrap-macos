@@ -96,5 +96,10 @@ export PATH=$ANDROID_HOME/tools:$PATH
 export PATH=$ANDROID_HOME/platform-tools:$PATH
 export PATH=$ANDROID_HOME/build-tools/23.0.1:$PATH
 
+# QT
+export PATH=$PATH:/usr/local/opt/qt/bin
+export LDFLAGS="-L/usr/local/opt/qt/lib"
+export CPPFLAGS="-I/usr/local/opt/qt/include"
+
 # Homebrew
 export PATH="/usr/local/sbin:$PATH
