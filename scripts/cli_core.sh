@@ -35,7 +35,7 @@ brew install openssl
 # brew install pandoc
 # brew install pkg-config libffi
 # brew install pigz
-# brew install pv
+brew install pv
 brew install readline
 # brew install rename
 # brew install rhino
