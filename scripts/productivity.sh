@@ -145,6 +145,11 @@ defaults write com.operasoftware.Opera PMPrintingExpandedStateForPrint2 -boolean
 defaults write com.operasoftware.OperaDeveloper PMPrintingExpandedStateForPrint2 -boolean true
 
 ################################################################################
+# Brave                                                                        #
+################################################################################
+brew cask install --appdir="/Applications" brave-browser
+
+################################################################################
 # Mail.app                                                                     #
 ################################################################################
 # Disable send and reply animations in Mail.app
