@@ -97,10 +97,15 @@ defaults write com.apple.Terminal ShowLineMarks -int 0
 # Don't display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
-
 ################################################################################
 # Android                                                                      #
 ################################################################################
+brew cask uninstall java
+brew tap caskroom/versions
+brew cask install caskroom/versions/java8
+mkdir -p ~/.android
+touch ~/.android/repositories.cfg
+brew cask install 
 brew install ant
 brew install maven
 brew install gradle
@@ -108,7 +113,7 @@ brew cask install --appdir="/Applications" android-studio
 brew cask install --appdir="/Applications" android-sdk
 brew cask install --appdir="/Applications" android-ndk
 brew cask install --appdir="/Applications" android-platform-tools
-brew cask reinstall android-platform-tools # workaround for now
+brew cask reinstall android-platform-tools
 brew cask install --appdir="/Applications" intel-haxm
 sdkmanager "platform-tools" "platforms;android-23"
 sdkmanager "build-tools;23.0.1"
@@ -130,8 +135,6 @@ brew install heroku/brew/heroku && heroku update
 ################################################################################
 # brew cask install --appdir="/Applications" intellij-idea
 # brew cask install --appdir="/Applications" eclipse-ide
-brew cask install visual-studio-code
-
 
 ################################################################################
 # Sublime                                                                      #
@@ -145,6 +148,29 @@ git clone https://github.com/wbond/package_control.git ~/Library/Application\ Su
 git clone https://github.com/braver/Solarized.git ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Solarized
 cp -rf ./files/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings 2> /dev/null
 
+################################################################################
+# VSCode                                                                       #
+################################################################################
+brew cask install --appdir="/Applications" visual-studio-code
+code --install-extension davidanson.vscode-markdownlint
+code --install-extension dracula-theme.theme-dracula
+code --install-extension eamodio.gitlens
+code --install-extension eg2.vscode-npm-script
+code --install-extension formulahendry.code-runner
+code --install-extension hookyqr.beautify
+code --install-extension knisterpeter.vscode-github
+code --install-extension kumar-harsh.graphql-for-vscode
+code --install-extension mauve.terraform
+code --install-extension mjmcloug.vscode-elixir
+code --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
+code --install-extension ms-python.python
+code --install-extension ms-vscode.go
+code --install-extension peterjausovec.vscode-docker
+code --install-extension pgourlain.erlang
+code --install-extension rebornix.ruby
+code --install-extension redhat.vscode-yaml
+code --install-extension rust-lang.rust
+code --install-extension shan.code-settings-sync
 
 ################################################################################
 # Atom                                                                         #
