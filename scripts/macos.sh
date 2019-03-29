@@ -534,6 +534,17 @@ defaults write com.apple.commerce AutoUpdate -bool true
 # Allow the App Store to reboot machine on macOS updates
 defaults write com.apple.commerce AutoUpdateRestartRequired -bool true
 
+###############################################################################
+# Restore Icons from generic state                                            #
+#   (from: https://gist.github.com/ismyrnow/e92c6010cda9325b2d8811387a05f224) #
+###############################################################################
+sudo rm -rfv /Library/Caches/com.apple.iconservices.store
+sudo find /private/var/folders/ \( -name com.apple.dock.iconcache -or -name com.apple.iconservices \) -exec rm -rfv {} \;
+sleep 3
+sudo touch /Applications/*
+sudo touch /Applications/Utilities/*
+killall Dock
+killall Finder
 
 ###############################################################################
 # Kill affected applications                                                  #
