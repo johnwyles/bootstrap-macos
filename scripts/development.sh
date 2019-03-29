@@ -196,7 +196,7 @@ apm install autocomplete-java
 apm install atom-typescript
 apm install react
 # Jenkins
-apm install language-jenkins
+apm install language-jenkinsfile
 # Python
 apm install autocomplete-python
 apm install python-tools
@@ -206,13 +206,13 @@ apm install language-swift
 apm install language-rust
 apm install busy-signal
 apm install intentions
-# apm install linter
+apm install linter
 apm install linter-rust
 apm install linter-ui-default
 # Erlang and Elixir
 apm install language-erlang
+apm install autocomplete-elixir
 apm install language-elixir
-apm install atom-elixir
-apm install linter-elixir
+apm install linter-elixirc
 # Fun
 apm install activate-power-mode

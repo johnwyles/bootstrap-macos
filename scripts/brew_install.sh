@@ -18,4 +18,4 @@ fi
 # Make sure we are using the latest Homebrew
 brew update
 # Upgrade existing packages
-brew upgrade --all
+brew upgrade
