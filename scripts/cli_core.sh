@@ -21,7 +21,7 @@ brew install git
 brew install git-extras
 brew install git-flow
 brew install git-lfs
-brew install gnu-sed --with-default-names
+brew install gnu-sed
 brew install grep
 # brew install hub
 # brew install imagemagick --with-webp
@@ -45,7 +45,7 @@ brew install screen
 # brew install ssh-copy-id
 brew install tmux
 # brew install tree
-brew install vim --with-lua --with-override-system-vi
+brew install vim --with-override-system-vi
 git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_awesome_vimrc.sh
 # brew install webkit2png

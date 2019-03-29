@@ -101,6 +101,7 @@ defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 ################################################################################
 # Android                                                                      #
 ################################################################################
+brew cask install homebrew/cask-versions/java8
 brew install ant
 brew install maven
 brew install gradle
@@ -108,7 +109,7 @@ brew cask install --appdir="/Applications" android-studio
 brew cask install --appdir="/Applications" android-sdk
 brew cask install --appdir="/Applications" android-ndk
 brew cask install --appdir="/Applications" android-platform-tools
-brew cask reinstall android-platform-tools # workaround for now
+brew cask reinstall android-platform-tools
 brew cask install --appdir="/Applications" intel-haxm
 sdkmanager "platform-tools" "platforms;android-23"
 sdkmanager "build-tools;23.0.1"
@@ -170,7 +171,7 @@ apm install autocomplete-java
 apm install atom-typescript
 apm install react
 # Jenkins
-apm install language-jenkins
+apm install language-jenkinsfile
 # Python
 apm install autocomplete-python
 apm install python-tools
@@ -180,13 +181,13 @@ apm install language-swift
 apm install language-rust
 apm install busy-signal
 apm install intentions
-# apm install linter
+apm install linter
 apm install linter-rust
 apm install linter-ui-default
 # Erlang and Elixir
 apm install language-erlang
+apm install autocomplete-elixir
 apm install language-elixir
-apm install atom-elixir
-apm install linter-elixir
+apm install linter-elixirc
 # Fun
 apm install activate-power-mode
