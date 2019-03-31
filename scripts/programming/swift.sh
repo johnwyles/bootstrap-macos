@@ -68,7 +68,3 @@ sudo xcodebuild -license accept
 
 # We might as well try to install mas since we have Xcode now
 brew install mas
-
-# Install the Vapor Project Generator
-brew tap vapor/homebrew-tap
-brew install vapor

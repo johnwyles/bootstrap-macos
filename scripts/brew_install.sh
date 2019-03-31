@@ -19,3 +19,12 @@ fi
 brew update
 # Upgrade existing packages
 brew upgrade
+
+# Turn off Google Analytics
+brew analytics off
+
+# Add some more stuff to our available packages
+brew tap caskroom/cask
+
+# Run some diagnostics
+brew doctor

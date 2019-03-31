@@ -179,6 +179,13 @@ function runSetup() {
   echo
   ( ./scripts/shells/zsh.sh )
 
+  # Setup Fish
+  echo
+  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running setup of Fish:"
+  echo    "  ./scripts/shells/fish.sh"
+  echo
+  ( ./scripts/shells/fish.sh )
+
   # Install Productivity Applications
   echo
   echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of productivity"
