@@ -24,6 +24,9 @@ brew cask install --appdir="/Applications" firefox
 # Install GIMP
 # brew cask install --appdir="/Applications" gimp
 
+# Install Hugo
+brew install hugo
+
 # Install Inkscape
 # brew cask install --appdir="/Applications" inkscape
 
