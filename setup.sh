@@ -172,19 +172,19 @@ function runSetup() {
   echo
   ( ./scripts/shells/bash.sh )
 
-  # Setup ZShell
-  echo
-  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running setup of ZShell:"
-  echo    "  ./scripts/shells/zsh.sh"
-  echo
-  ( ./scripts/shells/zsh.sh )
-
   # Setup Fish
   echo
   echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running setup of Fish:"
   echo    "  ./scripts/shells/fish.sh"
   echo
   ( ./scripts/shells/fish.sh )
+
+  # Setup ZShell
+  echo
+  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running setup of ZShell:"
+  echo    "  ./scripts/shells/zsh.sh"
+  echo
+  ( ./scripts/shells/zsh.sh )
 
   # Install Productivity Applications
   echo
