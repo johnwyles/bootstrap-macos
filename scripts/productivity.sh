@@ -12,6 +12,9 @@ brew cask install --appdir="/Applications" alfred
 # Install Bartender
 brew cask install --appdir="/Applications" bartender
 
+# Install BOINC
+brew cask install --appdir="~/Applications" boinc
+
 # Install Dropbox
 brew cask install --appdir="/Applications" dropbox
 
