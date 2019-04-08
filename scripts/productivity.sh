@@ -44,6 +44,9 @@ brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize \
 # Install MacTex
 # brew cask install --appdir="/Applications" mactex
 
+# Install Plex Media Server
+brew cask install --appdir="/Applications" plex-media-server
+
 # Install Resilio Sync
 brew cask install --appdir="/Applicaitons" resilio-sync
 
