@@ -48,7 +48,7 @@ brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize \
 brew cask install --appdir="/Applications" plex-media-server
 
 # Install Resilio Sync
-brew cask install --appdir="/Applicaitons" resilio-sync
+brew cask install --appdir="/Applications" resilio-sync
 
 # Install Spectacle
 brew cask install --appdir="/Applications" spectacle

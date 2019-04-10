@@ -121,7 +121,7 @@ sdkmanager "build-tools;23.0.1"
 ################################################################################
 # Arduino                                                                      #
 ################################################################################
-brew cask install --appdir="/Applicatons" arduino
+brew cask install --appdir="/Applications" arduino
 
 ################################################################################
 # Install Docker, Kubernetes, Heroku, Vagrant, VirtualBox                      #
