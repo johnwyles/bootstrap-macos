@@ -21,3 +21,6 @@ npm install -g react-native-cli
 
 # Install the AWS SDK
 npm install -g aws-sdk
+
+# Yarn
+npm install -g yarn

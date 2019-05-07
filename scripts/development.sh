@@ -10,6 +10,8 @@ brew cask install --appdir="/Applications" fork
 brew cask install --appdir="/Applications" keka
 # Backup and Sync from Google
 brew cask install --appdir="/Applications" google-backup-and-sync
+# Insomnica
+brew cask install --appdir="/Applications" insomnia
 
 ################################################################################
 # Terminals                                                                    #

@@ -37,3 +37,5 @@ pyenv global $PYTHON_LATEST $PYTHON2_LATEST
 pip install virtualenv
 
 pyenv rehash
+
+brew install pipenv
