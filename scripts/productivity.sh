@@ -55,9 +55,6 @@ brew cask install --appdir="/Applications" spectacle
 cp -r ./files/Shortcuts.json ~/Library/Application\ Support/Spectacle/Shortcuts.json 2> /dev/null
 
 # Install Spotify
-brew cask install --appdir="/Applications" sketch
-
-# Install Spotify
 brew cask install --appdir="/Applications" spotify
 
 # Install VLC

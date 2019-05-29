@@ -23,6 +23,7 @@ brew install tcpflow
 brew install tcpreplay
 brew install tcptrace
 brew install tor
-brew install ucspi-tcp # `tcpserver` etc.
+brew install tor-browser
+brew install ucspi-tcp
 brew install xpdf
 brew install xz
