@@ -24,7 +24,7 @@ brew upgrade
 brew analytics off
 
 # Add some more stuff to our available packages
-brew tap caskroom/cask
+brew tap homebrew/cask
 
 # Run some diagnostics
 brew doctor

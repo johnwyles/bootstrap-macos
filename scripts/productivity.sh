@@ -10,7 +10,7 @@ brew cask install --appdir="/Applications" 1password
 brew cask install --appdir="/Applications" alfred
 
 # Install Bartender
-brew cask install --appdir="/Applications" bartender
+#brew cask install --appdir="/Applications" bartender
 
 # Install BOINC
 brew cask install --appdir="~/Applications" boinc
@@ -19,10 +19,10 @@ brew cask install --appdir="~/Applications" boinc
 brew cask install --appdir="/Applications" dropbox
 
 # Install Evernote
-brew cask install --appdir="/Applications" evernote
+#brew cask install --appdir="/Applications" evernote
 
 # Install Firefox
-brew cask install --appdir="/Applications" firefox
+#brew cask install --appdir="/Applications" firefox
 
 # Install GIMP
 # brew cask install --appdir="/Applications" gimp
@@ -37,9 +37,9 @@ brew install hugo
 brew cask install --appdir="/Applications" java
 
 # Install QuickLook Plugins: https://github.com/sindresorhus/quick-look-plugins
-brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize \
-    webpquicklook suspicious-package qlprettypatch quicklookase qlvideo \
-    quicklook-csv
+#brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize \
+#    webpquicklook suspicious-package qlprettypatch quicklookase qlvideo \
+##    quicklook-csv
 
 # Install MacTex
 # brew cask install --appdir="/Applications" mactex
@@ -51,9 +51,9 @@ brew cask install --appdir="/Applications" plex-media-server
 brew cask install --appdir="/Applications" resilio-sync
 
 # Install Spectacle
-brew cask install --appdir="/Applications" spectacle
-cp -r ./files/Shortcuts.json ~/Library/Application\ Support/Spectacle/Shortcuts.json 2> /dev/null
-
+#brew cask install --appdir="/Applications" spectacle
+#cp -r ./files/Shortcuts.json ~/Library/Application\ Support/Spectacle/Shortcuts.json 2> /dev/null
+#
 # Install Spotify
 brew cask install --appdir="/Applications" spotify
 
@@ -148,15 +148,15 @@ defaults write com.google.Chrome.canary PMPrintingExpandedStateForPrint2 -bool t
 ################################################################################
 # Opera & Opera Developer                                                      #
 ################################################################################
-brew cask install --appdir="/Applications" opera
+#brew cask install --appdir="/Applications" opera
 # Expand the print dialog by default
-defaults write com.operasoftware.Opera PMPrintingExpandedStateForPrint2 -boolean true
-defaults write com.operasoftware.OperaDeveloper PMPrintingExpandedStateForPrint2 -boolean true
+#defaults write com.operasoftware.Opera PMPrintingExpandedStateForPrint2 -boolean true
+#defaults write com.operasoftware.OperaDeveloper PMPrintingExpandedStateForPrint2 -boolean true
 
 ################################################################################
 # Brave                                                                        #
 ################################################################################
-brew cask install --appdir="/Applications" brave-browser
+#brew cask install --appdir="/Applications" brave-browser
 
 ################################################################################
 # Mail.app                                                                     #
@@ -201,9 +201,9 @@ EOF
   fi
 fi
 
-brew cask install --appdir="/Applications" telegram
-brew cask install --appdir="/Applications" viber
-brew cask install --appdir="/Applications" whatsapp
+#brew cask install --appdir="/Applications" telegram
+#brew cask install --appdir="/Applications" viber
+#brew cask install --appdir="/Applications" whatsapp
 # Disable automatic emoji substitution (i.e. use plain text smileys)
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false
 # Disable smart quotes as it's annoying for messages that contain code
@@ -282,11 +282,11 @@ for app in "Google Chrome Canary" \
   "MacDown" \
   "Mail" \
   "Messages" \
-  "Opera" \
+#  "Opera" \
   "Photos" \
   "Safari" \
-  "Spectacle" \
-  "Sublime Text" \
+#  "Spectacle" \
+#  "Sublime Text" \
   "Transmission"; do
   killall "${app}" &> /dev/null
 done

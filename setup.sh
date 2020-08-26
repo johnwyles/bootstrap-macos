@@ -242,12 +242,12 @@ function runSetup() {
   echo
   ( ./scripts/cloud/gcp.sh )
 
-  # Setup GCP
-  echo
-  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running setup of OpenFaaS:"
-  echo    "  ./scripts/openfaas.sh"
-  echo
-  ( ./scripts/cloud/openfaas.sh )
+  # Setup OpenFaaS
+#  echo
+#  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running setup of OpenFaaS:"
+#  echo    "  ./scripts/openfaas.sh"
+#  echo
+#  ( ./scripts/cloud/openfaas.sh )
 
   # Cleanup Homebrew
   echo

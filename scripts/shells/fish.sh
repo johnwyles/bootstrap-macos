@@ -13,36 +13,36 @@ chsh -s /usr/local/bin/fish
 curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
 
 # Addons (from: https://github.com/ghaiklor/iterm-fish-fisher-osx)
-fisher add igalic/anicode
-fisher add fisherman/await
-fisher add edc/bass
-fisher add oh-my-fish/plugin-battery
-fisher add oh-my-fish/theme-bobthefish
-fisher add laughedelic/brew-completions
+/usr/bin/env fish -c 'fisher add igalic/anicode'
+/usr/bin/env fish -c 'fisher add fisherman/await'
+/usr/bin/env fish -c 'fisher add edc/bass'
+/usr/bin/env fish -c 'fisher add oh-my-fish/plugin-battery'
+/usr/bin/env fish -c 'fisher add oh-my-fish/theme-bobthefish'
+/usr/bin/env fish -c 'fisher add laughedelic/brew-completions'
 
 brew install terminal-notifier
-fisher add franciscolourenco/done
+/usr/bin/env fish -c 'fisher add franciscolourenco/done'
 
-fisher add Shadowigor/plugin-errno-grep
+/usr/bin/env fish -c 'fisher add Shadowigor/plugin-errno-grep'
 
 brew install fzy
-fisher add gyakovlev/fish-fzy
+/usr/bin/env fish -c 'fisher add gyakovlev/fish-fzy'
 
 brew install grc
-fisher add oh-my-fish/plugin-grc
+/usr/bin/env fish -c 'fisher add oh-my-fish/plugin-grc'
 
 brew install jq
-fisher add oh-my-fish/plugin-license
+/usr/bin/env fish -c 'fisher add oh-my-fish/plugin-license'
 
-fisher add oh-my-fish/plugin-node-binpath
+/usr/bin/env fish -c 'fisher add oh-my-fish/plugin-node-binpath'
 
-fisher add oh-my-fish/plugin-pj
+/usr/bin/env fish -c 'fisher add oh-my-fish/plugin-pj'
 set -U PROJECT_PATHS ~/Library/Projects
 
-fisher add fisherman/shark
-fisher add Markcial/upto
-fisher add jethrokuan/z
+/usr/bin/env fish -c 'fisher add fisherman/shark'
+/usr/bin/env fish -c 'fisher add Markcial/upto'
+/usr/bin/env fish -c 'fisher add jethrokuan/z'
 
 # Install Oh My Fish
-# curl -L https://get.oh-my.fish | fish
-# omf install bass
+/usr/bin/env fish -c 'curl -L https://get.oh-my.fish | /usr/bin/env fish'
+/usr/bin/env fish -c 'omf install bass'

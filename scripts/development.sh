@@ -18,7 +18,7 @@ brew cask install --appdir="/Applications" insomnia
 ################################################################################
 # Terminal.app
 open "./files/Dracula.terminal"
-open "./files/Solarized_Dark.terminal"
+#open "./files/Solarized_Dark.terminal"
 
 # Hyper
 brew cask install --appdir="/Applications" hyper
@@ -30,18 +30,19 @@ hyper install hyper-electron-highlighter
 hyper install hyper-dracula
 
 # iTerm2
+brew tap homebrew/cask-versions
 brew cask install --appdir="/Applications" iterm2
 /Applications/iTerm.app/Contents/MacOS/iTerm2 &
 sleep 5
 killall iTerm2
 open "./files/Dracula.itermcolors"
-open "./files/Solarized_Dark.itermcolors"
+#open "./files/Solarized_Dark.itermcolors"
 open "./files/termk.itermcolors"
 mkdir -p ~/Library/Application\ Support/iTerm2/DynamicProfiles/
 cp -f ./files/Dracula.itermprofile.json ~/Library/Application\ Support/iTerm2/DynamicProfiles/
 # Only use UTF-8 in Terminal.app
 defaults write com.apple.terminal StringEncodings -array 4
-# Use a modified version of the Solarized Dark theme by default in Terminal.app
+# Use a modified version of the Dracula theme by default in Terminal.app
 osascript <<EOD
 tell application "Terminal"
 
@@ -103,11 +104,10 @@ defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 # Android                                                                      #
 ################################################################################
 brew cask uninstall java
-brew tap caskroom/versions
-brew cask install caskroom/versions/java8
+brew tap homebrew/cask-versions
+brew cask install java8
 mkdir -p ~/.android
 touch ~/.android/repositories.cfg
-brew cask install 
 brew install ant
 brew install maven
 brew install gradle
@@ -146,14 +146,14 @@ brew install heroku/brew/heroku && heroku update
 ################################################################################
 # Sublime                                                                      #
 ################################################################################
-brew cask install --appdir="/Applications" sublime-text
-mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
-mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages
-git clone https://github.com/dracula/sublime.git ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Dracula\ Color\ Scheme
-git clone https://github.com/equinusocio/material-theme.git ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/material-theme
-git clone https://github.com/wbond/package_control.git ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/package_control
-git clone https://github.com/braver/Solarized.git ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Solarized
-cp -rf ./files/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings 2> /dev/null
+#brew cask install --appdir="/Applications" sublime-text
+#mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+#mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages
+#git clone https://github.com/dracula/sublime.git ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Dracula\ Color\ Scheme
+#git clone https://github.com/equinusocio/material-theme.git ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/material-theme
+#git clone https://github.com/wbond/package_control.git ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/package_control
+#git clone https://github.com/braver/Solarized.git ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Solarized
+#cp -rf ./files/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings 2> /dev/null
 
 ################################################################################
 # VSCode                                                                       #
@@ -182,44 +182,45 @@ code --install-extension shan.code-settings-sync
 ################################################################################
 # Atom                                                                         #
 ################################################################################
-brew cask install --appdir="/Applications" atom
+#brew cask install --appdir="/Applications" atom
 # Extra
-apm install atom-ide-ui
-apm install sort-lines
-apm install tabs-to-spaces
+#apm install atom-ide-ui
+#apm install sort-lines
+#apm install tabs-to-spaces
 # Docker
-apm install language-docker
-apm install linter-docker
+#apm install language-docker
+#apm install linter-docker
 # Git
-apm install git-plus
+#apm install git-plus
 # Go
-apm install go-debug
-apm install go-plus
-apm install go-signature-statusbar
-apm install language-protobuf
+#apm install go-debug
+#apm install go-plus
+#apm install go-signature-statusbar
+#apm install language-protobuf
 # Java
-apm install autocomplete-java
+#apm install autocomplete-java
 # Javascript
-apm install atom-typescript
-apm install react
+#apm install atom-typescript
+#apm install react
 # Jenkins
-apm install language-jenkinsfile
+#apm install language-jenkinsfile
 # Python
-apm install autocomplete-python
-apm install python-tools
+#apm install autocomplete-python
+#apm install python-tools
 # Swift
-apm install language-swift
+#apm install language-swift
 # Rust
-apm install language-rust
-apm install busy-signal
-apm install intentions
-apm install linter
-apm install linter-rust
-apm install linter-ui-default
+#apm install language-rust
+#apm install busy-signal
+#apm install intentions
+#apm install linter
+#apm install linter-rust
+#apm install linter-ui-default
 # Erlang and Elixir
-apm install language-erlang
-apm install autocomplete-elixir
-apm install language-elixir
-apm install linter-elixirc
+#apm install language-erlang
+#apm install autocomplete-elixir
+#apm install language-elixir
+#apm install linter-elixirc
 # Fun
-apm install activate-power-mode
+#apm install activate-power-mode
+

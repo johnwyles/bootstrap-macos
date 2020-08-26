@@ -18,5 +18,5 @@ pushd powerline
 popd
 rm -rf powerline
 
-brew tap caskroom/fonts
+brew tap homebrew/cask-fonts
 brew cask install font-hack-nerd-font
