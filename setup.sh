@@ -193,6 +193,13 @@ function runSetup() {
   echo
   ( ./scripts/productivity.sh )
 
+  # Install Chrome Extensions
+  echo
+  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of Google Chrome"
+  echo    "extensions: ./scripts/productivity/google_chrome_extensions.sh"
+  echo
+  ( ./scripts/productivity/google_chrome_extensions.sh )
+
   # Install Fonts
   echo
   echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of fonts:"
