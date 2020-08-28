@@ -12,6 +12,8 @@ brew cask install --appdir="/Applications" keka
 brew cask install --appdir="/Applications" google-backup-and-sync
 # Insomnica
 brew cask install --appdir="/Applications" insomnia
+# MySQL Workbench
+brew cask install --appdir="/Applications" mysqlworkbench
 
 ################################################################################
 # Terminals                                                                    #
@@ -39,7 +41,7 @@ open "./files/Dracula.itermcolors"
 #open "./files/Solarized_Dark.itermcolors"
 open "./files/termk.itermcolors"
 mkdir -p ~/Library/Application\ Support/iTerm2/DynamicProfiles/
-cp -f ./files/Dracula.itermprofile.json ~/Library/Application\ Support/iTerm2/DynamicProfiles/
+cp -f ./files/Dracula.itermprofiles.json ~/Library/Application\ Support/iTerm2/DynamicProfiles/
 # Only use UTF-8 in Terminal.app
 defaults write com.apple.terminal StringEncodings -array 4
 # Use a modified version of the Dracula theme by default in Terminal.app
@@ -129,6 +131,7 @@ brew cask install --appdir="/Applications" arduino
 # Install Docker, Kubernetes, Heroku, Vagrant, VirtualBox                      #
 ################################################################################
 brew cask install --appdir="/Applications" docker
+brew install docker-compose
 brew install kubernetes-cli
 brew install terraform
 brew cask install --appdir="/Applications" vagrant
