@@ -141,6 +141,14 @@ brew cask install --appdir="/Applications" virtualbox
 brew install heroku/brew/heroku && heroku update
 
 ################################################################################
+# ASDF                                                                         #
+################################################################################
+brew install asdf
+# Issue: https://github.com/asdf-vm/asdf/issues/428
+chmod 755 $(brew --prefix asdf)/asdf.sh
+echo -e "\n. $(brew --prefix asdf)/asdf.sh" >> ~/.zprofile
+
+################################################################################
 # Other IDEs                                                                   #
 ################################################################################
 # brew cask install --appdir="/Applications" intellij-idea
