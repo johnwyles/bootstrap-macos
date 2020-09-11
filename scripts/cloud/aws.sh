@@ -10,3 +10,7 @@ aws configure
 # S3
 pip install s3cmd --user --no-warn-script-location
 s3cmd --configure
+
+# SAM
+brew tap aws/tap
+brew install aws-sam-cli

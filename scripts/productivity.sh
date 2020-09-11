@@ -33,6 +33,9 @@ brew install hugo
 # Install Inkscape
 # brew cask install --appdir="/Applications" inkscape
 
+# iStat Menus
+brew cask install --appdir="/Applications" istat-menus
+
 # Install Java
 brew cask install --appdir="/Applications" java
 
