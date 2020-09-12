@@ -155,6 +155,11 @@ echo -e "\n. $(brew --prefix asdf)/asdf.sh" >> ~/.zprofile
 # brew cask install --appdir="/Applications" eclipse-ide
 
 ################################################################################
+# Kite                                                                         #
+################################################################################
+brew cask install --appdir="/Applications" kite
+
+################################################################################
 # Sublime                                                                      #
 ################################################################################
 #brew cask install --appdir="/Applications" sublime-text
@@ -175,14 +180,16 @@ code --install-extension dracula-theme.theme-dracula
 code --install-extension eamodio.gitlens
 code --install-extension eg2.vscode-npm-script
 code --install-extension formulahendry.code-runner
+code --install-extension kiteco.kite
 code --install-extension hookyqr.beautify
 code --install-extension knisterpeter.vscode-github
 code --install-extension kumar-harsh.graphql-for-vscode
-code --install-extension mauve.terraform
+code --install-extension hashicorp.terraform
 code --install-extension mjmcloug.vscode-elixir
 code --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
-code --install-extension ms-python.python
 code --install-extension ms-vscode.go
+code --install-extension ms-python.python
+code --install-extension ms-vscode.terraform
 code --install-extension peterjausovec.vscode-docker
 code --install-extension pgourlain.erlang
 code --install-extension rebornix.ruby
