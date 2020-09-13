@@ -38,4 +38,5 @@ pip install virtualenv
 
 pyenv rehash
 
+# Install pipenv
 brew install pipenv

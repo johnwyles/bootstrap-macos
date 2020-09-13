@@ -13,7 +13,7 @@ brew cask install --appdir="/Applications" alfred
 #brew cask install --appdir="/Applications" bartender
 
 # Install BOINC
-brew cask install --appdir="~/Applications" boinc
+# brew cask install --appdir="~/Applications" boinc
 
 # Install Dropbox
 brew cask install --appdir="/Applications" dropbox
@@ -22,7 +22,7 @@ brew cask install --appdir="/Applications" dropbox
 #brew cask install --appdir="/Applications" evernote
 
 # Install Firefox
-#brew cask install --appdir="/Applications" firefox
+brew cask install --appdir="/Applications" firefox
 
 # Install GIMP
 # brew cask install --appdir="/Applications" gimp
@@ -39,16 +39,19 @@ brew cask install --appdir="/Applications" istat-menus
 # Install Java
 brew cask install --appdir="/Applications" java
 
-# Install QuickLook Plugins: https://github.com/sindresorhus/quick-look-plugins
-#brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize \
-#    webpquicklook suspicious-package qlprettypatch quicklookase qlvideo \
-##    quicklook-csv
+# Install krisp.ai
+brew cask install --appdir="/Applications" krisp
 
 # Install MacTex
 # brew cask install --appdir="/Applications" mactex
 
 # Install Plex Media Server
 brew cask install --appdir="/Applications" plex-media-server
+
+# Install QuickLook Plugins: https://github.com/sindresorhus/quick-look-plugins
+#brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize \
+#    webpquicklook suspicious-package qlprettypatch quicklookase qlvideo \
+##    quicklook-csv
 
 # Install Resilio Sync
 brew cask install --appdir="/Applications" resilio-sync
@@ -137,16 +140,16 @@ defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
 brew cask install --appdir="/Applications" google-chrome
 # Disable the all too sensitive backswipe on trackpads
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
-defaults write com.google.Chrome.canary AppleEnableSwipeNavigateWithScrolls -bool false
+# defaults write com.google.Chrome.canary AppleEnableSwipeNavigateWithScrolls -bool false
 # Disable the all too sensitive backswipe on Magic Mouse
 defaults write com.google.Chrome AppleEnableMouseSwipeNavigateWithScrolls -bool false
-defaults write com.google.Chrome.canary AppleEnableMouseSwipeNavigateWithScrolls -bool false
+# defaults write com.google.Chrome.canary AppleEnableMouseSwipeNavigateWithScrolls -bool false
 # Use the system-native print preview dialog
 defaults write com.google.Chrome DisablePrintPreview -bool true
-defaults write com.google.Chrome.canary DisablePrintPreview -bool true
+# defaults write com.google.Chrome.canary DisablePrintPreview -bool true
 # Expand the print dialog by default
 defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
-defaults write com.google.Chrome.canary PMPrintingExpandedStateForPrint2 -bool true
+# defaults write com.google.Chrome.canary PMPrintingExpandedStateForPrint2 -bool true
 
 ################################################################################
 # Opera & Opera Developer                                                      #
@@ -183,8 +186,11 @@ defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnab
 ################################################################################
 # Messengers and Messages.app                                                  #
 ################################################################################
+# Install Discord
 brew cask install --appdir="/Applications" discord
-brew cask install --appdir="/Applications" skype
+
+# Install Skype
+# brew cask install --appdir="/Applications" skype
 
 # Slack (with dark theme)
 brew cask install --appdir="/Applications" slack
@@ -204,9 +210,15 @@ EOF
   fi
 fi
 
-#brew cask install --appdir="/Applications" telegram
+# Install Telegram
+brew cask install --appdir="/Applications" telegram
+
+# Install Viber
 #brew cask install --appdir="/Applications" viber
-#brew cask install --appdir="/Applications" whatsapp
+
+# Install WhatsApp
+brew cask install --appdir="/Applications" whatsapp
+
 # Disable automatic emoji substitution (i.e. use plain text smileys)
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false
 # Disable smart quotes as it's annoying for messages that contain code
@@ -280,8 +292,10 @@ defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
 # Randomize port on launch
 defaults write org.m0k.transmission RandomPort -bool true
 
-for app in "Google Chrome Canary" \
-  "Google Chrome" \
+# Kill applications whose settings we tweaked
+for app in "Google Chrome" \
+  # "Finder" \
+  # "Google Chrome Canary" \
   "MacDown" \
   "Mail" \
   "Messages" \
@@ -289,7 +303,6 @@ for app in "Google Chrome Canary" \
   "Photos" \
   "Safari" \
 #  "Spectacle" \
-#  "Sublime Text" \
   "Transmission"; do
   killall "${app}" &> /dev/null
 done

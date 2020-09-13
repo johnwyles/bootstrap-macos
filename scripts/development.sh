@@ -1,17 +1,23 @@
 #!/usr/bin/env bash
 
 # Cyberduck
-brew cask install --appdir="/Applications" cyberduck
+# brew cask install --appdir="/Applications" cyberduck
+
 # Appcleaner
-brew cask install --appdir="/Applications" appcleaner
+# brew cask install --appdir="/Applications" appcleaner
+
 # Fork
 brew cask install --appdir="/Applications" fork
+
 # Keka
-brew cask install --appdir="/Applications" keka
+# brew cask install --appdir="/Applications" keka
+
 # Backup and Sync from Google
 brew cask install --appdir="/Applications" google-backup-and-sync
-# Insomnica
-brew cask install --appdir="/Applications" insomnia
+
+# Insomnia
+# brew cask install --appdir="/Applications" insomnia
+
 # MySQL Workbench
 brew cask install --appdir="/Applications" mysqlworkbench
 
@@ -22,14 +28,14 @@ brew cask install --appdir="/Applications" mysqlworkbench
 open "./files/Dracula.terminal"
 #open "./files/Solarized_Dark.terminal"
 
-# Hyper
-brew cask install --appdir="/Applications" hyper
-/Applications/Hyper.app/Contents/MacOS/Hyper &
-sleep 5
-killall Hyper
-hyper install hyperpower
-hyper install hyper-electron-highlighter
-hyper install hyper-dracula
+# Install Hyper
+# brew cask install --appdir="/Applications" hyper
+# /Applications/Hyper.app/Contents/MacOS/Hyper &
+# sleep 5
+# killall Hyper
+# hyper install hyperpower
+# hyper install hyper-electron-highlighter
+# hyper install hyper-dracula
 
 # iTerm2
 brew tap homebrew/cask-versions
@@ -125,10 +131,10 @@ sdkmanager "build-tools;23.0.1"
 ################################################################################
 # Arduino                                                                      #
 ################################################################################
-brew cask install --appdir="/Applications" arduino
+# brew cask install --appdir="/Applications" arduino
 
 ################################################################################
-# Install Docker, Kubernetes, Heroku, Vagrant, VirtualBox                      #
+# Install Docker, Kubernetes, Heroku, Terraform, Vagrant, VirtualBox           #
 ################################################################################
 brew cask install --appdir="/Applications" docker
 brew install docker-compose
@@ -241,4 +247,3 @@ code --install-extension shan.code-settings-sync
 #apm install linter-elixirc
 # Fun
 #apm install activate-power-mode
-
