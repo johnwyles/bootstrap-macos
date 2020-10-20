@@ -1,34 +1,32 @@
 #!/usr/bin/env bash
 
 export BOOTSTRAP_MACOS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+trap "echo Exiting: ./setup.sh >&2; exit" SIGUSR1
+
+echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Please enter your password for sudo access."
 
 # Ask for the administrator password upfront
 sudo -v
+if [ $? -ne 0 ]; then
+  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m You will need sudo access to run this setup."
+  exit
+fi
 # Keep-alive: update existing `sudo` time stamp until we finish
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-# Backup the dotfiles that already exist
-function backupDotfiles() {
-  if test -d ~/.bootstrap-macos-dotfiles-backup; then
-    echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m A backup of your dotfiles (~/.*)"
-    echo    "already exists in your home directory! We cannot run this script"
-    echo    "safely as it will overwrite an existing backup or do something you"
-    echo    "may not like (e.g. ~/bootstrap-macos-dotfiles-backup exists)."
-    echo    "Exiting."
-    echo
-    exit 1
-  fi
-
-  mkdir -p ~/.bootstrap-macos-dotfiles-backup
-  for filename in `/bin/ls -a dotfiles/`; do
-    /usr/bin/rsync -r dotfiles/$filename ~/.bootstrap-macos-dotfiles-backup/
-  done
-}
-
-# Copy over the dotfiles to home
-function copyDotfiles() {
-  /usr/bin/rsync -r dotfiles/* ~/
-}
+# Attempt to accept the Xcode license agreement
+echo
+echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Attempting to accept the agreement for Xcode:"
+echo    "./setup.sh"
+echo
+if ! sudo xcodebuild -license accept; then
+  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m You will need install the latest Xcode version AND the""
+  echo "Command Line Tools for Xcode for that version before running this script. Install BOTH of""
+  echo "these and and then you can re-run this script."
+  echo "Lauching web browser now where you can download the latest version and install it."
+  open "https://developer.apple.com/downloads/more"
+  exit
+fi
 
 # Pull up System Preferences > Security & Privacy > Privacy > Accessibility
 function addTerminalToPrivacyAccessibility() {

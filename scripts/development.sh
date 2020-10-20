@@ -1,19 +1,16 @@
 #!/usr/bin/env bash
 
-# Cyberduck
-# brew cask install --appdir="/Applications" cyberduck
-
 # Appcleaner
 # brew cask install --appdir="/Applications" appcleaner
+
+# Cyberduck
+# brew cask install --appdir="/Applications" cyberduck
 
 # Fork
 brew cask install --appdir="/Applications" fork
 
 # Keka
 # brew cask install --appdir="/Applications" keka
-
-# Backup and Sync from Google
-brew cask install --appdir="/Applications" google-backup-and-sync
 
 # Insomnia
 # brew cask install --appdir="/Applications" insomnia
@@ -157,7 +154,7 @@ echo -e "\n. $(brew --prefix asdf)/asdf.sh" >> ~/.zprofile
 ################################################################################
 # Other IDEs                                                                   #
 ################################################################################
-# brew cask install --appdir="/Applications" intellij-idea
+brew cask install --appdir="/Applications" intellij-idea
 # brew cask install --appdir="/Applications" eclipse-ide
 
 ################################################################################

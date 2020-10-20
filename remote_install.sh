@@ -16,7 +16,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 GITHUB_USERNAME=${GITHUB_USERNAME:="johnwyles"}
 
 # Get the code from the git fork and run setup.sh
-git clone git@github.com:$GITHUB_USERNAME/bootstrap-macos.git ~/.bootstrap-macos
+git clone https://github.com/$GITHUB_USERNAME/bootstrap-macos.git ~/.bootstrap-macos
 pushd ~/.bootstrap-macos
   ./setup.sh
 popd

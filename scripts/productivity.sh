@@ -27,6 +27,9 @@ brew cask install --appdir="/Applications" firefox
 # Install GIMP
 # brew cask install --appdir="/Applications" gimp
 
+# Install Backup and Sync from Google
+brew cask install --appdir="/Applications" google-backup-and-sync
+
 # Install Hugo
 brew install hugo
 
@@ -37,7 +40,7 @@ brew install hugo
 brew cask install --appdir="/Applications" istat-menus
 
 # Install Java
-brew cask install --appdir="/Applications" java
+brew cask install --appdir="/Applications" netbeans-java-se
 
 # Install krisp.ai
 brew cask install --appdir="/Applications" krisp
@@ -135,21 +138,17 @@ defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
 defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
 
 ################################################################################
-# Google Chrome & Google Chrome Canary                                         #
+# Google Chrome                                                                #
 ################################################################################
 brew cask install --appdir="/Applications" google-chrome
 # Disable the all too sensitive backswipe on trackpads
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
-# defaults write com.google.Chrome.canary AppleEnableSwipeNavigateWithScrolls -bool false
 # Disable the all too sensitive backswipe on Magic Mouse
 defaults write com.google.Chrome AppleEnableMouseSwipeNavigateWithScrolls -bool false
-# defaults write com.google.Chrome.canary AppleEnableMouseSwipeNavigateWithScrolls -bool false
 # Use the system-native print preview dialog
 defaults write com.google.Chrome DisablePrintPreview -bool true
-# defaults write com.google.Chrome.canary DisablePrintPreview -bool true
 # Expand the print dialog by default
 defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
-# defaults write com.google.Chrome.canary PMPrintingExpandedStateForPrint2 -bool true
 
 ################################################################################
 # Opera & Opera Developer                                                      #

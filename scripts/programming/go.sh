@@ -2,7 +2,7 @@
 
 brew install go
 
-# Atom
+# Some key imports for the IDEs
 go get golang.org/x/tools/cmd/godoc
 go get github.com/golang/lint/golint
 go get github.com/derekparker/delve/cmd/dlv

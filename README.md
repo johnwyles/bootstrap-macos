@@ -31,7 +31,7 @@ This is a little safer approach than installing remotely and gives you a little 
 
 ```
 # Run with:
-# (optional) if you have a fork of this repository set this:
+# (optional) NOTE: if you have a fork of this repository set this value to your GitHub username:
 #export GITHUB_USERNAME="your_github_username"
 # Clone:
   export GITHUB_USERNAME=${GITHUB_USERNAME:="johnwyles"}
@@ -47,7 +47,7 @@ This is the simplest way to get started if you like the default settings found i
 
 ```
 # Run with:
-#   (optional) If you have a fork of this repository set this first:
+# (optional) NOTE: if you have a fork of this repository set this value to your GitHub username:
 #export GITHUB_USERNAME="your_github_username"
 # Execute:
   export GITHUB_USERNAME=${GITHUB_USERNAME:="johnwyles"}
@@ -72,103 +72,140 @@ This project was created largely because I became frustrated with a lot of the [
 * `setup.sh`: This file is basically a wrapper around all of the underlying scripts in the `scripts/` directory.
 * `dotfiles/`: These are all the dotfiles which will overwrite the files in your `$HOME` for `$USER` after prompting you to make a backup.  The backup of your current copy of your dotfiles before executing will be located in: `$HOME/.dotfiles-backup`.
 * `scripts/`: This directory has most everything you need to take a look over and which will perform all of the installation of applications, tools, settings, and configurations for your machine.
-    * `cloud/`: The sets up both AWS and GCP cloud tools and settings.
-        * `aws.sh`: Setup Amazon Web Services (AWS) and install associated tools, libraries, SDKs.
-        * `gcp.sh`: Setup Google Cloud Platform (GCP) and install associated tools, libraries, SDKs.
+  * `cloud/`: The sets up both AWS and GCP cloud tools and settings.
+    * `aws.sh`: Setup Amazon Web Services (AWS) and install associated tools, libraries, SDKs.
+    * `gcp.sh`: Setup Google Cloud Platform (GCP) and install associated tools, libraries, SDKs.
+    * `openfaas.sh`: Install the OpenFaas CLI
+  * `productivity/`: Where ancillary scripts for the `productivity.sh` script live.
+        * `google_chrome_extensions.sh`: Installs various Google Chrome Extensions
     * `programming/`: The set of scripts in this directory will install a number of programming languages and a minimal set of tools associated with them that are useful.
-        * `go.sh`: Installs Go, `godoc`, `golint`, and the AWS SDK.
-        * `java.sh`: Installs Java.
-        * `javascript.sh`: Installs NVM, latest Node, NPM, and the AWS SDK.
-        * `php.sh`: Installs PHP.
-        * `python.sh`: Installs Python 2, Python 3, and `virtualenv`.
-        * `ruby.sh`: Installs Ruby, `rbenv`, `bundler`, and the AWS SDK.
-        * `rust.sh`: Installs Rust.
-        * `swift.sh`: Installs Xcode and `vapor`.
-    * `shells/`:
-        * `bash.sh`: This sets up [BashIt](https://github.com/Bash-it/bash-it) with the `powerline` theme and a bunch of plugins enabled: `alias-completion`, `aws`, `base`, `battery`, `docker-compose`, `docker`, `git-subrepo`, `git`, `go`, `history`, `java`, `javascript`, `node`, `nodenv`, `nvm`, `osx-timemachine`, `osx`, `powerline`, `pyenv`, `python`, `rails`, `rbenv`, `ruby`, `ssh`, `sshagent`, `tmux`, `tmuxinator`, `virtualenv`
-        * `zsh.sh`: This sets up [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) with the `powerlevel9k` theme and a bunch of plugins enabled: `aws`, `bundler`, `cargo`, `colorize`, `command-not-found`, `common-aliases`, `compleat`, `docker`, `docker-compose`, `gem`, `git`, `git-extras`, `git-flow`, `github`, `gitignore`, `golang`, `history`, `history-substring-search`, `kubectl`, `last-working-dir`, `node`, `npm`, `nvm`, `osx`, `pip`, `pyenv`, `pylint`, `python`, `rails`, `rake`, `rbenv`, `react-native`, `ruby`, `rvm`, `ssh-agent`, `sudo`, `sublime`, `terminalapp`, `terraform`, `themes`, `tmux`, `tmuxinator`, `virtualenv`, `xcode`, `zsh-navigation-tools`.
-    * `brew_install.sh`: Script which looks for the Homebrew installation and installs it if it is not found.
-    * `brew_cleanup.sh`: Cleanup tasks for Homebrew installations.  This script is run at the end of all others.
-    * `cli_core.sh`: This will install some basic CLI related tools and utilities and their configuration (e.g. `git`, `grep`, `wget`, etc.).
-    * `development_tools.sh`: This script will install the set of software development tools and IDE's as well as their themes, color schemes, plugins, and settings and configuration.
-    * `fonts.sh`: Self-explanitory. This will install a set of fonts used in the various terminal options and IDEs.
-    * `hacker_tools.sh`: Installs some of the CTF tools (see https://github.com/ctfs/write-ups).
-    * `macos.sh`: This script will set all of the operating system level settings such as the trackpad, keyboard, windows, hot corners, as well as third part application settings.
-    * `productivity.sh`: This will install Applications system-wide for productivity (things like: Slack, Discord, Alfred, etc.)
+      * `erlang.sh`: Installs Erlang, Elixir, and Phoenix.
+      * `go.sh`: Installs Go, `godoc`, `golint`, and the AWS SDK.
+      * `java.sh`: Installs Java.
+      * `javascript.sh`: Installs NVM, latest Node, NPM, and the AWS SDK.
+      * `php.sh`: Installs PHP.
+      * `python.sh`: Installs Python 2, Python 3, and `virtualenv`.
+      * `ruby.sh`: Installs Ruby, `rbenv`, `bundler`, and the AWS SDK.
+      * `rust.sh`: Installs Rust.
+      * `swift.sh`: Installs Xcode and `vapor`.
+  * `shells/`:
+    * `bash.sh`: This sets up [BashIt](https://github.com/Bash-it/bash-it) with the `powerline` theme and a bunch of plugins enabled: `alias-completion`, `aws`, `base`, `battery`, `docker-compose`, `docker`, `git-subrepo`, `git`, `go`, `history`, `java`, `javascript`, `node`, `nodenv`, `nvm`, `osx-timemachine`, `osx`, `powerline`, `pyenv`, `python`, `rails`, `rbenv`, `ruby`, `ssh`, `sshagent`, `tmux`, `tmuxinator`, `virtualenv`
+    * `zsh.sh`: This sets up [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) with the `powerlevel9k` theme and a bunch of plugins enabled: `aws`, `bundler`, `cargo`, `colorize`, `command-not-found`, `common-aliases`, `compleat`, `docker`, `docker-compose`, `gem`, `git`, `git-extras`, `git-flow`, `github`, `gitignore`, `golang`, `history`, `history-substring-search`, `kubectl`, `last-working-dir`, `node`, `npm`, `nvm`, `osx`, `pip`, `pyenv`, `pylint`, `python`, `rails`, `rake`, `rbenv`, `react-native`, `ruby`, `rvm`, `ssh-agent`, `sudo`, `sublime`, `terminalapp`, `terraform`, `themes`, `tmux`, `tmuxinator`, `virtualenv`, `xcode`, `zsh-navigation-tools`.
+  * `3dprinting.sh`: Installs Ultimaker Cura for 3D printing.
+  * `brew_install.sh`: Script which looks for the Homebrew installation and installs it if it is not found.
+  * `brew_cleanup.sh`: Cleanup tasks for Homebrew installations.  This script is run at the end of all others.
+  * `cli_core.sh`: This will install some basic CLI related tools and utilities and their configuration (e.g. `git`, `grep`, `wget`, etc.).
+  * `development_tools.sh`: This script will install the set of software development tools and IDE's as well as their themes, color schemes, plugins, and settings and configuration.
+  * `fonts.sh`: Self-explanitory. This will install a set of fonts used in the various terminal options and IDEs.
+  * `hacker_tools.sh`: Installs some of the CTF tools (see https://github.com/ctfs/write-ups).
+  * `macos.sh`: This script will set all of the operating system level settings such as the trackpad, keyboard, windows, hot corners, as well as third part application settings.
+  * `productivity.sh`: This will install Applications system-wide for productivity (things like: Slack, Discord, Alfred, etc.)
+  * `raspberrypi.sh`: This script will just install Balena Etcher for writing images to SD cards for us in a Raspberry Pi.
+  * `xcode_cli_tools.sh`: This sets out a number of checks and verifications of both Xcode and Command Line Tools for Xcode as is also done somewhat at the beginning of `setup.sh`.
 
 
 ## Applications
 
-* Shells
-    * `iTerm2`
-        * Customized with `termk` and `Solarized Dark` color sets
-        * Utilizes the `Hack Regular Nerd Font Complete` font set
-    * `Hyper`
-        * Uses the fun `hyperpower` plugin
-        * Utilizes the `hyper-electron-highlighter` theme
-* IDEs
-    * `Atom` (with the following plugins)
-        * `activate-power-mode`
-        * `autocomplete-java`
-        * `atom-typescript`
-        * `busy-signal`
-        * `go-debug`
-        * `go-plus`
-        * `intentions`
-        * `language-swift`
-        * `language-rust`
-        * `linter`
-        * `linter-rust`
-        * `linter-ui-default`
-        * `react`
-    * `Sublime Text 3` (with following packages and themes)
-        * `Material` theme
-        * `Package Control` plugin
-        * `Solarized` theme
-    * `VSCode`
-    * `Xcode`
+* Cloud
+  * `Google SDK and CLI`
+  * `AWS SDK and CLI`
+  * `OpenFaaS CLI`
 * Developer Tools
-    * `Docker`
-    * `Fork`
-    * `Heroku`
-    * `kubectl`
-    * `Terraform`
-    * `Vagrant`
-    * `Vim (Ultimate Awesome version)`
-    * `VirtualBox`
-    * `VMware Fusion`
-* Programming Languages
-    * `arduino`
-    * `go` (includes: `godoc`, `golint`, `protobuf`, `micro`, `gRPC`)
-    * `java`
-    * `javascript` (includes: `nvm`, `npm`, `node`, `react`)
-    * `php`
-    * `python` (includes: `pyenv`)
-    * `ruby` (includes: `rbenv`, `bundler`)
-    * `rust` (includes: `cargo`)
-    * `swift` (includes: `Xcode`, `vapor`)
-* Productivity
-    * `Alfred`
-    * `Appcleaner`
-    * `Backup and Sync from Google`
-    * `Bartender`
-    * `Cyberduck`
-    * `Dropbox`
-    * `Evernote`
-    * `Firefox`
-    * `Forklift`
-    * `Google Chrome`
-    * `Java`
-    * `Keka`
-    * `Macdown`
-    * `Opera`
-    * `Slack`
-    * `Spectacle`
-    * `Spotify`
-    * `Telegram`
-    * `Transmission`
-    * `Viber`
-    * `VLC`
+  * `Android Development Setup`
+  * `App Cleaner`
+  * `Arduino`
+  * `Cyberduck`
+  * `Docker`
+  * `Fork`
+  * `Heroku`
+  * `Kite`
+  * `kubectl`
+  * `MySQL Workbench`
+  * `Terraform`
+  * `Vagrant`
+  * `Vim (Ultimate Awesome version)`
+  * `VirtualBox`
+  * `VMware Fusion`
+* Devices
+  * `3D Printing`
+  * `Arduino`
+  * `Raspberri Pi`
 * Fonts
-    * `Powerline`
-    * `Nerd`
+  * `Powerline`
+  * `Nerd`
+* IDEs
+  * `Atom` (with the following plugins)
+    * `activate-power-mode`
+    * `autocomplete-java`
+    * `atom-typescript`
+    * `busy-signal`
+    * `go-debug`
+    * `go-plus`
+    * `intentions`
+    * `language-swift`
+    * `language-rust`
+    * `linter`
+    * `linter-rust`
+    * `linter-ui-default`
+    * `react`
+  * `Eclipse`
+  * `IntelliJ IDEA`
+  * `Sublime Text 3` (with following packages and themes)
+    * `Material` theme
+    * `Package Control` plugin
+    * `Solarized` theme
+  * `VSCode`
+  * `Xcode`
+* Productivity
+  * `1Password`
+  * `Alfred`
+  * `Appcleaner`
+  * `Backup and Sync from Google`
+  * `Bartender`
+  * `BOINC`
+  * `Brave`
+  * `Discord`
+  * `Dropbox`
+  * `Evernote`
+  * `Firefox`
+  * `Forklift`
+  * `Google Backup and Sync`
+  * `Google Chrome`
+  * `Inkscape`
+  * `iStat Menus`
+  * `Java`
+  * `Keka`
+  * `Krisp`
+  * `Macdown`
+  * `MacTeX`
+  * `Opera`
+  * `Plex Media Server`
+  * `Quicklook Plugins`
+  * `Resilio Sync`
+  * `Skype`
+  * `Slack`
+  * `Spectacle`
+  * `Spotify`
+  * `Telegram`
+  * `Transmission`
+  * `Viber`
+  * `VLC`
+  * `WhatsApp`
+* Programming Languages
+  * `erlang`
+  * `elixir`
+  * `go` (includes: `godoc`, `golint`, `protobuf`, `micro`, `gRPC`)
+  * `java`
+  * `javascript` (includes: `nvm`, `npm`, `node`, `react`)
+  * `php`
+  * `python` (includes: `pyenv`)
+  * `ruby` (includes: `rbenv`, `bundler`)
+  * `rust` (includes: `cargo`)
+  * `swift` (includes: `Xcode`, `vapor`)
+* Shells
+  * `iTerm2`
+    * Customized with `termk` and `Solarized Dark` color sets
+    * Utilizes the `Hack Regular Nerd Font Complete` font set
+  * `Hyper`
+    * Uses the fun `hyperpower` plugin
+    * Utilizes the `hyper-electron-highlighter` theme

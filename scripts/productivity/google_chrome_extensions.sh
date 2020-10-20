@@ -3,6 +3,13 @@
 # Adapted from: https://stackoverflow.com/a/17378420
 install_chrome_extension () {
   preferences_dir_path=~/Library/Application\ Support/Google/Chrome/Default/Extensions
+  if [[ ! -d  $preferences_dir_path ]]; then
+    preferences_dir_path=~/Library/Application\ Support/Google/Chrome/Profile\ 1/Extensions
+    if [[ ! -d $preferences_dir_path ]]; then
+      echo "Cannot find a Google Chrome profile to install extensions. Aborting."
+      exit
+    fi
+  fi
   pref_file_path=$preferences_dir_path/$1.json
   upd_url="https://clients2.google.com/service/update2/crx"
   mkdir -p $preferences_dir_path

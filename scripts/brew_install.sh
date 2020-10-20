@@ -5,6 +5,10 @@ if ! hash brew 2>/dev/null; then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
 fi
 
+# Install git (we do this because of a bug of if you already had homebrew and git)
+brew reinstall git
+brew install git
+
 # Schedule Homebrew Updates
 # This is better than HOMEBREW_AUTO_UPDATE_SECS
 # Consider disabling auto-updates with
