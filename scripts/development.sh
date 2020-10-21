@@ -41,8 +41,8 @@ brew cask install --appdir="/Applications" iterm2
 sleep 5
 killall iTerm2
 open "./files/Dracula.itermcolors"
-#open "./files/Solarized_Dark.itermcolors"
-open "./files/termk.itermcolors"
+# open "./files/Solarized_Dark.itermcolors"
+# open "./files/termk.itermcolors"
 mkdir -p ~/Library/Application\ Support/iTerm2/DynamicProfiles/
 cp -f ./files/Dracula.itermprofiles.json ~/Library/Application\ Support/iTerm2/DynamicProfiles/
 # Only use UTF-8 in Terminal.app
