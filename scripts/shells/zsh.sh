@@ -1,10 +1,9 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 # Install Zsh
 touch ~/.zshrc
 brew install zsh
 grep -q -F "/usr/local/bin/zsh" /etc/shells || sudo sh -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
-chsh -s /usr/local/bin/zsh
 
 # Zsh Completion
 brew install zsh-completions
@@ -43,3 +42,6 @@ cp $BOOTSTRAP_MACOS_DIR/dotfiles/.zshrc ~/
 
 # Source again for good measure
 source ~/.zshrc
+
+# Change Zsh to be the default shell
+chsh -s /usr/local/bin/zsh
