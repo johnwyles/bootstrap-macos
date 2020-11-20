@@ -5,6 +5,9 @@ export GET_PIP_URL="https://bootstrap.pypa.io/get-pip.py"
 #export GET_PIP_URL=https://raw.githubusercontent.com/pypa/get-pip/master/get-pip.py
 brew install pyenv
 
+# This is needed for some of the shells underlying scripting
+brew install pyenv-virtualenvwrapper
+
 export PYTHON_LATEST=$(pyenv install -l 2>/dev/null | awk '$1 ~ /^[0-9.]*$/ {latest=$1} END {print latest}')
 export PYTHON2_LATEST=$(pyenv install -l 2>/dev/null | awk '$1 ~ /^2[0-9.]*$/ {latest=$1} END {print latest}')
 
@@ -38,4 +41,5 @@ pip install virtualenv
 
 pyenv rehash
 
+# Install pipenv
 brew install pipenv

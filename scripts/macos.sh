@@ -49,8 +49,6 @@ esac
 sudo pmset -a standbydelay 86400
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
-# Disable transparency in the menu bar and elsewhere on Yosemite
-defaults write com.apple.universalaccess reduceTransparency -bool true
 # Set highlight color to Dracula Light Purple
 defaults write NSGlobalDomain AppleHighlightColor -string "0.788235 0.658823 0.980392"
 # Set highlight color to Dracula Dark Purple
@@ -208,10 +206,10 @@ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int
 # (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 # Use scroll gesture with the Ctrl (^) modifier key to zoom
-defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
-defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
+#defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
+#defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
 # Follow the keyboard focus while zoomed in
-defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
+#defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 # Disable press-and-hold for keys in favor of key repeat
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 # Set a blazingly fast keyboard repeat rate
@@ -538,11 +536,11 @@ defaults write com.apple.commerce AutoUpdateRestartRequired -bool true
 # Restore Icons from generic state                                            #
 #   (from: https://gist.github.com/ismyrnow/e92c6010cda9325b2d8811387a05f224) #
 ###############################################################################
-sudo rm -rfv /Library/Caches/com.apple.iconservices.store
-sudo find /private/var/folders/ \( -name com.apple.dock.iconcache -or -name com.apple.iconservices \) -exec rm -rfv {} \;
-sleep 3
-sudo touch /Applications/*
-sudo touch /Applications/Utilities/*
+#sudo rm -rfv /Library/Caches/com.apple.iconservices.store
+#sudo find /private/var/folders/ \( -name com.apple.dock.iconcache -or -name com.apple.iconservices \) -exec rm -rfv {} \;
+#sleep 3
+#sudo touch /Applications/*
+#sudo touch /Applications/Utilities/*
 killall Dock
 killall Finder
 

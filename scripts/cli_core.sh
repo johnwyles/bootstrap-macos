@@ -26,7 +26,7 @@ brew install grep
 # brew install hub
 # brew install imagemagick --with-webp
 brew install jq
-# brew install lua
+brew install lua
 # brew install lynx
 brew install moreutils
 brew install openssh

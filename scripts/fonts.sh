@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
-# Install font tools.
+# Install font tools
 brew tap bramstein/webfonttools
 brew install sfnt2woff
 brew install sfnt2woff-zopfli
 brew install woff2
 
+# Powerline
 mkdir -p powerline
 pushd powerline
   pip install --user powerline-status
@@ -18,5 +19,6 @@ pushd powerline
 popd
 rm -rf powerline
 
-brew tap caskroom/fonts
+# Fonts
+brew tap homebrew/cask-fonts
 brew cask install font-hack-nerd-font

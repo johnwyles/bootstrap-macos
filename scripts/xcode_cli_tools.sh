@@ -15,13 +15,14 @@ if ! $(xcode-select -p &>/dev/null); then
   echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of Xcode CLI tools:"
   echo    "./scripts/xcode_cli_tools.sh"
   echo
-  xcode-select --install &>/dev/null
+  sudo xcode-select --install
   # Wait until the Xcode CLI tools are done installing
   until $(xcode-select -p &>/dev/null); do
     sleep 5
   done
   # Setup the Xcode CLI tools path
-  sudo xcode-select --switch $_CLT_PATH
+  #sudo xcode-select --switch $_CLT_PATH
+  sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
 fi
 
 # Check that the Xcode CLI tools path is set
@@ -32,24 +33,15 @@ if [ ! -d "$(xcode-select -print-path)" ]; then
   exit 1
 fi
 
-# Attempt to accept the Xcode license agreement
-echo
-echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Attempting to accept the agreement for Xcode:"
-echo    "./scripts/xcode_cli_tools.sh"
-echo
-if ! sudo xcodebuild -license accept; then
-  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m You SHOULD install the Xcode first but continuing..."
-  open "https://developer.apple.com/downloads/more"
-  # exit 1
-fi
-
 # Install additional required components
-# /Applications/Xcode.app/Contents/MacOS/Xcode -installComponents
+/Applications/Xcode.app/Contents/MacOS/Xcode -installComponents
 for pkg in /Applications/Xcode.app/Contents/Resources/Packages/*.pkg; do
   sudo installer -pkg "$pkg" -target /
 done
 
 # Install macOS SDK headers
+#if [ -f /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_11.7.pkg ]; then
 if [ -f $CLT_PATH/Packages/macOS_SDK_headers_for_macOS_12.2.pkg ]; then
   sudo installer -pkg $_CLT_PATH/Packages/macOS_SDK_headers_for_macOS_12.2.pkg -target /
+  #sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_11.7.pkg -target /
 fi

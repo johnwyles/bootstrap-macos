@@ -4,7 +4,6 @@
 touch ~/.bash_profile
 brew install bash
 grep -q -F "/usr/local/bin/bash" /etc/shells || sudo sh -c 'echo "/usr/local/bin/bash" >> /etc/shells'
-chsh -s /usr/local/bin/bash
 
 # Bash completion
 brew install bash-completion
@@ -15,7 +14,7 @@ cp $BOOTSTRAP_MACOS_DIR/dotfiles/.bash_profile ~/
 source ~/.bash_profile
 
 # Setup Bash-It plugins
-bash-it enable plugin alias-completion aws base battery docker-compose \
+bash-it enable plugin aws base battery docker-compose \
     docker git-subrepo git go history java javascript node node nvm \
     osx-timemachine osx powerline pyenv python rails rbenv ruby ssh sshagent \
     tmux tmuxinator virtualenv
@@ -27,3 +26,6 @@ bash-it reload
 # Install colorls
 gem install colorls
 rbenv rehash
+
+# Change Bash to be the default shell
+chsh -s /usr/local/bin/bash

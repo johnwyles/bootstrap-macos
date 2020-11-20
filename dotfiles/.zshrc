@@ -46,7 +46,7 @@ plugins=(aws bundler cargo colorize command-not-found common-aliases compleat \
     docker docker-compose gem git git-extras git-flow github gitignore golang \
     history history-substring-search kubectl last-working-dir node npm nvm osx \
     pip pyenv pylint python rake rbenv react-native ruby rvm ssh-agent sudo \
-    sublime terminalapp terraform themes tmux tmuxinator virtualenv xcode \
+    terraform themes tmux tmuxinator virtualenv xcode \
     zsh-navigation-tools)
 
 autoload -U compinit && compinit
