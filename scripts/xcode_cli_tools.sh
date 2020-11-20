@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export _CLT_PATH="/Library/Developer/CommandLineTools"
+
 # Update the OS and Install Xcode Tools
 echo
 echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running update of macOS: ./scripts/xcode_cli_tools.sh"
@@ -19,7 +21,7 @@ if ! $(xcode-select -p &>/dev/null); then
     sleep 5
   done
   # Setup the Xcode CLI tools path
-  sudo xcode-select --switch /Library/Developer/CommandLineTools
+  sudo xcode-select --switch $_CLT_PATH
 fi
 
 # Check that the Xcode CLI tools path is set
@@ -48,6 +50,6 @@ for pkg in /Applications/Xcode.app/Contents/Resources/Packages/*.pkg; do
 done
 
 # Install macOS SDK headers
-if [ -f /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg ]; then
-  sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
+if [ -f $CLT_PATH/Packages/macOS_SDK_headers_for_macOS_12.2.pkg ]; then
+  sudo installer -pkg $_CLT_PATH/Packages/macOS_SDK_headers_for_macOS_12.2.pkg -target /
 fi
