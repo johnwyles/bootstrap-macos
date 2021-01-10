@@ -1,3 +1,6 @@
+# HOMEBREW AND DEPRECATION WARNING
+With the release of the new Macbook M1 much of this process will likely be broken until Homebrew is fixed at which point I am likely to start from scratch with a much different methodology
+
 # Bootstrap for macOS (OS X / OSX) and Dotfiles
 
 This is the gathering of all of the best practices and setups that I could find for serious developers and software engineers on an Apple macOS (OS X / OSX) machine. This should largely be considered as a great starting point when you receive a new image or machine. It incorporates the use of dotfiles and is, in such a way, part and parcel with the configuration of the shell environments.
