@@ -1,6 +1,6 @@
-# Bootstrap for macOS (OS X / OSX) and Dotfiles
+# Bootstrap and Provisioning for mac OS / macOS (OS X / OSX) and Dotfiles
 
-This is the gathering of all of the best practices and setups that I could find for serious developers and software engineers on an Apple macOS (OS X / OSX) machine. This should largely be considered as a great starting point when you receive a new image or machine. It incorporates the use of dotfiles and is, in such a way, part and parcel with the configuration of the shell environments.
+This is the gathering of all installation, setup, configuration, and best practices that I could find for serious developers and engineers on an Apple macOS / mac OS (OS X / OSX) machine. This should largely be considered as a great starting point when you receive a new image or machine you are looking to provision and customize. It incorporates the use of dotfiles and is, in such a way, part and parcel with the configuration of the shell environments.
 
 **CURRENT AS OF:** Big Sur
 **WORKS ON:** Intel and M1 architectures
