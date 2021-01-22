@@ -4,73 +4,73 @@
 # macOS Extras                                                                 #
 ################################################################################
 # Install 1password
-brew cask install --appdir="/Applications" 1password
+brew install --cask 1password
 
 # Install Alfred
-brew cask install --appdir="/Applications" alfred
+brew install --cask alfred
 
 # Install Bartender
-#brew cask install --appdir="/Applications" bartender
+#brew install --cask bartender
 
 # Install BOINC
-# brew cask install --appdir="~/Applications" boinc
+# brew install --cask --appdir="~/Applications" boinc
 
 # Install Dropbox
-brew cask install --appdir="/Applications" dropbox
+brew install --cask dropbox
 
 # Install Evernote
-#brew cask install --appdir="/Applications" evernote
+#brew install --cask evernote
 
 # Install Firefox
-brew cask install --appdir="/Applications" firefox
+brew install --cask firefox
 
 # Install GIMP
-# brew cask install --appdir="/Applications" gimp
+# brew install --cask gimp
 
 # Install Backup and Sync from Google
-brew cask install --appdir="/Applications" google-backup-and-sync
+brew install --cask google-backup-and-sync
 
 # Install Hugo
 brew install hugo
 
 # Install Inkscape
-# brew cask install --appdir="/Applications" inkscape
+# brew install --cask inkscape
 
 # iStat Menus
-brew cask install --appdir="/Applications" istat-menus
+brew install --cask istat-menus
 
 # Install Java
-brew cask install --appdir="/Applications" netbeans-java-se
+brew install --cask netbeans-java-se
 
 # Install krisp.ai
-brew cask install --appdir="/Applications" krisp
+brew install --cask krisp
 
 # Install MacTex
-# brew cask install --appdir="/Applications" mactex
+# brew install --cask mactex
 
 # Install Plex Media Server
-brew cask install --appdir="/Applications" plex-media-server
+brew install --cask plex-media-server
 
 # Install QuickLook Plugins: https://github.com/sindresorhus/quick-look-plugins
-#brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize \
+#brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize \
 #    webpquicklook suspicious-package qlprettypatch quicklookase qlvideo \
 ##    quicklook-csv
 
 # Install Resilio Sync
-brew cask install --appdir="/Applications" resilio-sync
+brew install --cask resilio-sync
 
 # Install Spectacle
-#brew cask install --appdir="/Applications" spectacle
+#brew install --cask spectacle
 #cp -r ./files/Shortcuts.json ~/Library/Application\ Support/Spectacle/Shortcuts.json 2> /dev/null
 #
 # Install Spotify
-brew cask install --appdir="/Applications" spotify
+brew install --cask spotify
 
 # Install VLC
-brew cask install --appdir="/Applications" vlc
+brew install --cask vlc
 
 # Install XQuartz
-brew cask install --appdir="~/Applications" xquartz
+brew install --cask --appdir="~/Applications" xquartz
 
 ################################################################################
 # Safari                                                                       #
@@ -140,7 +140,7 @@ defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
 ################################################################################
 # Google Chrome                                                                #
 ################################################################################
-brew cask install --appdir="/Applications" google-chrome
+brew install --cask google-chrome
 # Disable the all too sensitive backswipe on trackpads
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
 # Disable the all too sensitive backswipe on Magic Mouse
@@ -153,7 +153,7 @@ defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
 ################################################################################
 # Opera & Opera Developer                                                      #
 ################################################################################
-#brew cask install --appdir="/Applications" opera
+#brew install --cask opera
 # Expand the print dialog by default
 #defaults write com.operasoftware.Opera PMPrintingExpandedStateForPrint2 -boolean true
 #defaults write com.operasoftware.OperaDeveloper PMPrintingExpandedStateForPrint2 -boolean true
@@ -161,7 +161,7 @@ defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
 ################################################################################
 # Brave                                                                        #
 ################################################################################
-#brew cask install --appdir="/Applications" brave-browser
+#brew install --cask brave-browser
 
 ################################################################################
 # Mail.app                                                                     #
@@ -186,13 +186,13 @@ defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnab
 # Messengers and Messages.app                                                  #
 ################################################################################
 # Install Discord
-brew cask install --appdir="/Applications" discord
+brew install --cask discord
 
 # Install Skype
-# brew cask install --appdir="/Applications" skype
+# brew install --cask skype
 
 # Slack (with dark theme)
-brew cask install --appdir="/Applications" slack
+brew install --cask slack
 if [ -f /Applications/Slack.app/Contents/Resources/app.asar.unpacked/src/static/ssb-interop.js ]; then
   if ! grep -q 'slack-night-mode' /Applications/Slack.app/Contents/Resources/app.asar.unpacked/src/static/ssb-interop.js; then
     cat <<-EOF >> /Applications/Slack.app/Contents/Resources/app.asar.unpacked/src/static/ssb-interop.js
@@ -210,13 +210,13 @@ EOF
 fi
 
 # Install Telegram
-brew cask install --appdir="/Applications" telegram
+brew install --cask telegram
 
 # Install Viber
-#brew cask install --appdir="/Applications" viber
+#brew install --cask viber
 
 # Install WhatsApp
-brew cask install --appdir="/Applications" whatsapp
+brew install --cask whatsapp
 
 # Disable automatic emoji substitution (i.e. use plain text smileys)
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false
@@ -228,7 +228,7 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 ################################################################################
 # MacDown                                                                      #
 ################################################################################
-brew cask install --appdir="/Applications" macdown
+brew install --cask macdown
 git clone https://github.com/dracula/macdown
 mkdir -p ~/Library/Application\ Support/MacDown/Themes/
 cp -f macdown/Dracula.style ~/Library/Application\ Support/MacDown/Themes/
@@ -265,7 +265,7 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 ################################################################################
 # Transmission                                                                 #
 ################################################################################
-brew cask install --appdir="/Applications" transmission
+brew install --cask transmission
 # Use `~/Documents/Torrents` to store incomplete downloads
 defaults write org.m0k.transmission UseIncompleteDownloadFolder -bool true
 defaults write org.m0k.transmission IncompleteDownloadFolder -string "${HOME}/Documents/Torrents"

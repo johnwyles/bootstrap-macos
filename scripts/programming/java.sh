@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-brew cask install --appdir="~/Applications" netbeans-java-se
+brew install --cask --appdir="~/Applications" netbeans-java-se

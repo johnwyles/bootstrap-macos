@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Install all SDKs
-brew cask install google-cloud-sdk
+brew install --cask google-cloud-sdk
 
 pip install --upgrade google-api-python-client --user --no-warn-script-location
 pip install --upgrade google-cloud --user --no-warn-script-location

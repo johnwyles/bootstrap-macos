@@ -10,12 +10,13 @@ FISH_BIN_PATH=`which fish`
 grep -q -F $FISH_BIN_PATH /etc/shells || sudo sh -c "echo $FISH_BIN_PATH >> /etc/shells"
 
 # Install Fisher
+#curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
 
 # Install Oh My Fish
-curl -L https://get.oh-my.fish > install_fish.sh
-/usr/bin/env fish -c 'fish install --noninteractive -path=~/.local/share/omf --config=~/.config/omf'
-rm -f install_fish.sh
+curl -L https://get.oh-my.fish > install.fish
+/usr/bin/env fish -c 'fish install.fish --noninteractive --path=~/.local/share/omf --config=~/.config/omf'
+rm -f install.fish
 
 # Addons (from: https://github.com/ghaiklor/iterm-fish-fisher-osx)
 /usr/bin/env fish -c 'fisher add igalic/anicode'

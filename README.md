@@ -1,9 +1,9 @@
-# HOMEBREW AND DEPRECATION WARNING
-With the release of the new Macbook M1 much of this process will likely be broken until Homebrew is fixed at which point I am likely to start from scratch with a much different methodology
-
 # Bootstrap for macOS (OS X / OSX) and Dotfiles
 
 This is the gathering of all of the best practices and setups that I could find for serious developers and software engineers on an Apple macOS (OS X / OSX) machine. This should largely be considered as a great starting point when you receive a new image or machine. It incorporates the use of dotfiles and is, in such a way, part and parcel with the configuration of the shell environments.
+
+**CURRENT AS OF:** Big Sur
+**WORKS ON:** Intel and M1 architectures
 
 
 ## Screenshot
@@ -57,7 +57,6 @@ This is the simplest way to get started if you like the default settings found i
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/$GITHUB_USERNAME/bootstrap-macos/master/remote_install.sh)"
 ```
 
-
 ## Please Help
 
 I *highly* encourage you to please submit pull requests to this repository and contribute back from your fork whatever you found useful so that it grows.
@@ -67,13 +66,14 @@ This project was created largely because I became frustrated with a lot of the [
 * Out of date
 * Not generic enough (not enough tool and approach agnosticism)
 * Buggy
-* Unsafe
+* Unsafe or insecure
 
 ### Breakdown of Files
 * `README.md`: This file
 * `remote_install.sh`: The script that is invoked when you perform a remote installation of this project. You will not need to execute this script if you are forking this repository and running from your fork locally or if you are performing a manual installation from checking out this repository.
 * `setup.sh`: This file is basically a wrapper around all of the underlying scripts in the `scripts/` directory.
 * `dotfiles/`: These are all the dotfiles which will overwrite the files in your `$HOME` for `$USER` after prompting you to make a backup.  The backup of your current copy of your dotfiles before executing will be located in: `$HOME/.dotfiles-backup`.
+* `files/`: Stores various color and theme configurations for IDEs and Terminals.
 * `scripts/`: This directory has most everything you need to take a look over and which will perform all of the installation of applications, tools, settings, and configurations for your machine.
   * `cloud/`: The sets up both AWS and GCP cloud tools and settings.
     * `aws.sh`: Setup Amazon Web Services (AWS) and install associated tools, libraries, SDKs.
@@ -93,12 +93,15 @@ This project was created largely because I became frustrated with a lot of the [
       * `swift.sh`: Installs Xcode and `vapor`.
   * `shells/`:
     * `bash.sh`: This sets up [BashIt](https://github.com/Bash-it/bash-it) with the `powerline` theme and a bunch of plugins enabled: `alias-completion`, `aws`, `base`, `battery`, `docker-compose`, `docker`, `git-subrepo`, `git`, `go`, `history`, `java`, `javascript`, `node`, `nodenv`, `nvm`, `osx-timemachine`, `osx`, `powerline`, `pyenv`, `python`, `rails`, `rbenv`, `ruby`, `ssh`, `sshagent`, `tmux`, `tmuxinator`, `virtualenv`
-    * `zsh.sh`: This sets up [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) with the `powerlevel9k` theme and a bunch of plugins enabled: `aws`, `bundler`, `cargo`, `colorize`, `command-not-found`, `common-aliases`, `compleat`, `docker`, `docker-compose`, `gem`, `git`, `git-extras`, `git-flow`, `github`, `gitignore`, `golang`, `history`, `history-substring-search`, `kubectl`, `last-working-dir`, `node`, `npm`, `nvm`, `osx`, `pip`, `pyenv`, `pylint`, `python`, `rails`, `rake`, `rbenv`, `react-native`, `ruby`, `rvm`, `ssh-agent`, `sudo`, `sublime`, `terminalapp`, `terraform`, `themes`, `tmux`, `tmuxinator`, `virtualenv`, `xcode`, `zsh-navigation-tools`.
+    * `zsh.sh`: This sets up [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) with the `powerlevel9k` theme and a bunch of plugins enabled: `aws`, `bundler`, `cargo`, `colorize`, `command-not-found`, `common-aliases`, `compleat`, `docker`, `docker-compose`, `gem`, `git`, `git-extras`, `git-flow`, `github`, `gitignore`, `golang`, `history`, `history-substring-search`, `kubectl`, `last-working-dir`, `node`, `npm`, `nvm`, `osx`, `pip`, `pyenv`, `pylint`, `python`, `rails`, `rake`, `rbenv`, `react-native`, `ruby`, `rvm`, `ssh-agent`, `sudo`, `sublime`, `terminalapp`, `terraform`, `themes`, `tmux`, `tmuxinator`, `virtualenv`, `xcode`, `zsh-navigation-tools`
+    * `fish.sh`: This sets up [Oh My Fish](https://github.com/oh-my-fish/oh-my-fish) with the following plugins:  `igalic/anicode`, `fisherman/await`, `edc/bass`, `oh-my-fish/theme-bobthefish`, `laughedelic/brew-completions`, `franciscolourenco/done`, `Shadowigor/plugin-errno-grep`, `gyakovlev/fish-fzy`, `oh-my-fish/plugin-grc`, `oh-my-fish/plugin-license`, `oh-my-fish/plugin-node-binpath`, `oh-my-fish/plugin-pj`, `fisherman/shark`, `Markcial/upto`, `jethrokuan/z`
+
   * `3dprinting.sh`: Installs Ultimaker Cura for 3D printing.
-  * `brew_install.sh`: Script which looks for the Homebrew installation and installs it if it is not found.
   * `brew_cleanup.sh`: Cleanup tasks for Homebrew installations.  This script is run at the end of all others.
+  * `brew_install.sh`: Script which looks for the Homebrew installation and installs it if it is not found.
   * `cli_core.sh`: This will install some basic CLI related tools and utilities and their configuration (e.g. `git`, `grep`, `wget`, etc.).
-  * `development_tools.sh`: This script will install the set of software development tools and IDE's as well as their themes, color schemes, plugins, and settings and configuration.
+  * `development.sh`: This script will install the set of software development tools and IDE's as well as their themes, color schemes, plugins, settings, and configurations.
+  * `dotfiles.sh`: Backsup all dotfiles that will be replaced using these set of scripts.
   * `fonts.sh`: Self-explanitory. This will install a set of fonts used in the various terminal options and IDEs.
   * `hacker_tools.sh`: Installs some of the CTF tools (see https://github.com/ctfs/write-ups).
   * `macos.sh`: This script will set all of the operating system level settings such as the trackpad, keyboard, windows, hot corners, as well as third part application settings.
@@ -157,7 +160,28 @@ This project was created largely because I became frustrated with a lot of the [
     * `Material` theme
     * `Package Control` plugin
     * `Solarized` theme
-  * `VSCode`
+  * `VSCode` (with the following plugins)
+    * `davidanson.vscode-markdownlint`
+    * `dracula-theme.theme-dracula`
+    * `eamodio.gitlens`
+    * `eg2.vscode-npm-script`
+    * `formulahendry.code-runner`
+    * `kiteco.kite`
+    * `hookyqr.beautify`
+    * `knisterpeter.vscode-github`
+    * `kumar-harsh.graphql-for-vscode`
+    * `hashicorp.terraform`
+    * `mjmcloug.vscode-elixir`
+    * `ms-kubernetes-tools.vscode-kubernetes-tools`
+    * `ms-vscode.go`
+    * `ms-python.python`
+    * `ms-vscode.terraform`
+    * `peterjausovec.vscode-docker`
+    * `pgourlain.erlang`
+    * `rebornix.ruby`
+    * `redhat.vscode-yaml`
+    * `rust-lang.rust`
+    * `shan.code-settings-sync`
   * `Xcode`
 * Productivity
   * `1Password`
@@ -172,8 +196,9 @@ This project was created largely because I became frustrated with a lot of the [
   * `Evernote`
   * `Firefox`
   * `Forklift`
-  * `Google Backup and Sync`
+  * `Google Drive`
   * `Google Chrome`
+  * `Google Chrome Extensions`
   * `Inkscape`
   * `iStat Menus`
   * `Java`
@@ -196,7 +221,6 @@ This project was created largely because I became frustrated with a lot of the [
   * `WhatsApp`
 * Programming Languages
   * `erlang`
-  * `elixir`
   * `go` (includes: `godoc`, `golint`, `protobuf`, `micro`, `gRPC`)
   * `java`
   * `javascript` (includes: `nvm`, `npm`, `node`, `react`)
@@ -206,9 +230,25 @@ This project was created largely because I became frustrated with a lot of the [
   * `rust` (includes: `cargo`)
   * `swift` (includes: `Xcode`, `vapor`)
 * Shells
+  * `Terminal`
+    * Customized with the `Dracula` color set
+    * Utilizes the `Hack Regular Nerd Font Complete` font set
   * `iTerm2`
-    * Customized with `termk` and `Solarized Dark` color sets
+    * Customized with `Dracula`, `termk`, and `Solarized Dark` color sets
     * Utilizes the `Hack Regular Nerd Font Complete` font set
   * `Hyper`
     * Uses the fun `hyperpower` plugin
     * Utilizes the `hyper-electron-highlighter` theme
+
+## TODO
+
+There are some things I would like to do to this project to take it further and mainly they are around the maintenance of this project being broken down into some main areas: keeping updates backwards compatible, toggliblity of the various suites of software, `README.md` takes a long time to update. Here are some ways I have thought of to capture these in addition to others:
+
+* Update to work with M1 style of using Homebrew in Big Sur
+* Update screenshot(s)
+* Come up with a way to present the many numerous options in a GUI
+  * Probably involves spitting out a master configuration YAML or JSON
+  * Using a configuration file to toggle on and off packages and customizations
+* `README.md` sections become auto-generated or maintained
+* Enumerate what each Chome extension is (currently cryptic)
+* Research using Ansible

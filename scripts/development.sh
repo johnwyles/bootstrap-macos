@@ -1,22 +1,22 @@
 #!/usr/bin/env bash
 
 # Appcleaner
-# brew cask install --appdir="/Applications" appcleaner
+# brew install --cask appcleaner
 
 # Cyberduck
-# brew cask install --appdir="/Applications" cyberduck
+# brew install --cask cyberduck
 
 # Fork
-brew cask install --appdir="/Applications" fork
+brew install --cask fork
 
 # Keka
-# brew cask install --appdir="/Applications" keka
+# brew install --cask keka
 
 # Insomnia
-# brew cask install --appdir="/Applications" insomnia
+# brew install --cask insomnia
 
 # MySQL Workbench
-brew cask install --appdir="/Applications" mysqlworkbench
+brew install --cask mysqlworkbench
 
 ################################################################################
 # Terminals                                                                    #
@@ -26,7 +26,7 @@ open "./files/Dracula.terminal"
 #open "./files/Solarized_Dark.terminal"
 
 # Install Hyper
-# brew cask install --appdir="/Applications" hyper
+# brew install --cask hyper
 # /Applications/Hyper.app/Contents/MacOS/Hyper &
 # sleep 5
 # killall Hyper
@@ -36,7 +36,7 @@ open "./files/Dracula.terminal"
 
 # iTerm2
 brew tap homebrew/cask-versions
-brew cask install --appdir="/Applications" iterm2
+brew install --cask iterm2
 /Applications/iTerm.app/Contents/MacOS/iTerm2 &
 sleep 5
 killall iTerm2
@@ -110,37 +110,37 @@ defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 ################################################################################
 brew cask uninstall java
 brew tap homebrew/cask-versions
-brew cask install java8
+brew install --cask java8
 mkdir -p ~/.android
 touch ~/.android/repositories.cfg
 brew install ant
 brew install maven
 brew install gradle
-brew cask install --appdir="/Applications" android-studio
-brew cask install --appdir="/Applications" android-sdk
-brew cask install --appdir="/Applications" android-ndk
-brew cask install --appdir="/Applications" android-platform-tools
+brew install --cask android-studio
+brew install --cask android-sdk
+brew install --cask android-ndk
+brew install --cask android-platform-tools
 brew cask reinstall android-platform-tools
-brew cask install --appdir="/Applications" intel-haxm
+brew install --cask intel-haxm
 sdkmanager "platform-tools" "platforms;android-23"
 sdkmanager "build-tools;23.0.1"
 
 ################################################################################
 # Arduino                                                                      #
 ################################################################################
-# brew cask install --appdir="/Applications" arduino
+# brew install --cask arduino
 
 ################################################################################
 # Install Docker, Kubernetes, Heroku, Terraform, Vagrant, VirtualBox           #
 ################################################################################
-brew cask install --appdir="/Applications" docker
+brew install --cask docker
 brew install docker-compose
 brew install kubernetes-cli
 brew install terraform
-brew cask install --appdir="/Applications" vagrant
-brew cask install --appdir="/Applications" vagrant-manager
-brew cask install --appdir="/Applications" virtualbox
-# brew cask install --appdir="/Applications" vmware-fusion
+brew install --cask vagrant
+brew install --cask vagrant-manager
+brew install --cask virtualbox
+# brew install --cask vmware-fusion
 brew install heroku/brew/heroku && heroku update
 
 ################################################################################
@@ -154,18 +154,18 @@ echo -e "\n. $(brew --prefix asdf)/asdf.sh" >> ~/.zprofile
 ################################################################################
 # Other IDEs                                                                   #
 ################################################################################
-brew cask install --appdir="/Applications" intellij-idea
-# brew cask install --appdir="/Applications" eclipse-ide
+brew install --cask intellij-idea
+# brew install --cask eclipse-ide
 
 ################################################################################
 # Kite                                                                         #
 ################################################################################
-brew cask install --appdir="/Applications" kite
+brew install --cask kite
 
 ################################################################################
 # Sublime                                                                      #
 ################################################################################
-#brew cask install --appdir="/Applications" sublime-text
+#brew install --cask sublime-text
 #mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
 #mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages
 #git clone https://github.com/dracula/sublime.git ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Dracula\ Color\ Scheme
@@ -177,7 +177,7 @@ brew cask install --appdir="/Applications" kite
 ################################################################################
 # VSCode                                                                       #
 ################################################################################
-brew cask install --appdir="/Applications" visual-studio-code
+brew install --cask visual-studio-code
 code --install-extension davidanson.vscode-markdownlint
 code --install-extension dracula-theme.theme-dracula
 code --install-extension eamodio.gitlens
@@ -203,7 +203,7 @@ code --install-extension shan.code-settings-sync
 ################################################################################
 # Atom                                                                         #
 ################################################################################
-#brew cask install --appdir="/Applications" atom
+#brew install --cask atom
 # Extra
 #apm install atom-ide-ui
 #apm install sort-lines
