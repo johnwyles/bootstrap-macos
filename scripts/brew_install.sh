@@ -2,10 +2,10 @@
 
 # Install Homebrew if not installed - brew.sh
 if ! hash brew 2>/dev/null; then
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-# Install git (we do this because of a bug of if you already had homebrew and git)
+# Install git (we do this because of a bug that appears if you already had homebrew and git)
 brew reinstall git
 brew install git
 
@@ -13,14 +13,16 @@ brew install git
 # This is better than HOMEBREW_AUTO_UPDATE_SECS
 # Consider disabling auto-updates with
 # export HOMEBREW_NO_AUTO_UPDATE=1
-cron_entry='0 */6 * * * /usr/local/bin/brew update &>/dev/null'
-if ! crontab -l | fgrep "$cron_entry" >/dev/null; then
-  (crontab -l 2>/dev/null; echo "$cron_entry") | \
+BREW_EXECUTABLE=`which brew`
+CRON_ENTRY="0 */6 * * * ${BREW_EXECUTABLE} update &>/dev/null"
+if ! crontab -l | fgrep "$CRON_ENTRY" >/dev/null; then
+  (crontab -l 2>/dev/null; echo "$CRON_ENTRY") | \
     crontab -
 fi
 
 # Make sure we are using the latest Homebrew
 brew update
+
 # Upgrade existing packages
 brew upgrade
 

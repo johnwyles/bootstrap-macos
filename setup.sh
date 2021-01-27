@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 export BOOTSTRAP_MACOS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+#echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m BASH_SOURCE[0]=${BASH_SOURCE[0]} BOOTSTRAP_MACOS_DIR=${BOOTSTRAP_MACOS_DIR}"
 trap "echo Exiting: ./setup.sh >&2; exit" SIGUSR1
 
 echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Please enter your password for sudo access."
@@ -13,20 +14,6 @@ if [ $? -ne 0 ]; then
 fi
 # Keep-alive: update existing `sudo` time stamp until we finish
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
-# Attempt to accept the Xcode license agreement
-echo
-echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Attempting to accept the agreement for Xcode:"
-echo    "./setup.sh"
-echo
-if ! sudo xcodebuild -license accept; then
-  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m You will need install the latest Xcode version AND the""
-  echo "Command Line Tools for Xcode for that version before running this script. Install BOTH of""
-  echo "these and and then you can re-run this script."
-  echo "Lauching web browser now where you can download the latest version and install it."
-  open "https://developer.apple.com/downloads/more"
-  exit
-fi
 
 # Pull up System Preferences > Security & Privacy > Privacy > Accessibility
 function addTerminalToPrivacyAccessibility() {
@@ -57,7 +44,6 @@ EOD
 function runSetup() {
   # Backup users dotfiles and copy over our dotfiles
   ( ./scripts/dotfiles.sh )
-
 
   # Get the permissions we will need manually
   echo
@@ -163,6 +149,13 @@ function runSetup() {
   echo
   ( ./scripts/programming/erlang.sh )
 
+  # Install Fonts
+  echo
+  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of fonts:"
+  echo    "  ./scripts/fonts.sh"
+  echo
+  ( ./scripts/fonts.sh )
+
   # Setup Bash
   echo
   echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running setup of Bash:"
@@ -192,18 +185,11 @@ function runSetup() {
   ( ./scripts/productivity.sh )
 
   # Install Chrome Extensions
-  echo
-  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of Google Chrome"
-  echo    "extensions: ./scripts/productivity/google_chrome_extensions.sh"
-  echo
-  ( ./scripts/productivity/google_chrome_extensions.sh )
-
-  # Install Fonts
-  echo
-  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of fonts:"
-  echo    "  ./scripts/fonts.sh"
-  echo
-  ( ./scripts/fonts.sh )
+  # echo
+  # echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of Google Chrome"
+  # echo    "extensions: ./scripts/productivity/google_chrome_extensions.sh"
+  # echo
+  # ( ./scripts/productivity/google_chrome_extensions.sh )
 
   # Install Development Tools
   echo
@@ -213,11 +199,11 @@ function runSetup() {
   ( ./scripts/development.sh )
 
   # Install Arduino Tools
-  echo
-  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of Arduino tools:"
-  echo    "  ./scripts/arduino.sh"
-  echo
-  ( ./scripts/arduino.sh )
+  # echo
+  # echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of Arduino tools:"
+  # echo    "  ./scripts/arduino.sh"
+  # echo
+  # ( ./scripts/arduino.sh )
 
   # Install Raspberry Pi Tools
   echo

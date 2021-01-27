@@ -108,9 +108,8 @@ defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 ################################################################################
 # Android                                                                      #
 ################################################################################
-brew cask uninstall java
-brew tap homebrew/cask-versions
-brew install --cask java8
+brew install java
+brew install netbeans
 mkdir -p ~/.android
 touch ~/.android/repositories.cfg
 brew install ant
@@ -120,8 +119,10 @@ brew install --cask android-studio
 brew install --cask android-sdk
 brew install --cask android-ndk
 brew install --cask android-platform-tools
-brew cask reinstall android-platform-tools
-brew install --cask intel-haxm
+
+# Install for Intel processors
+# brew install --cask intel-haxm
+
 sdkmanager "platform-tools" "platforms;android-23"
 sdkmanager "build-tools;23.0.1"
 
@@ -133,15 +134,15 @@ sdkmanager "build-tools;23.0.1"
 ################################################################################
 # Install Docker, Kubernetes, Heroku, Terraform, Vagrant, VirtualBox           #
 ################################################################################
-brew install --cask docker
+brew install docker
 brew install docker-compose
-brew install kubernetes-cli
-brew install terraform
+brew install --build-from-source kubernetes-cli
+brew install --build-from-source terraform
 brew install --cask vagrant
 brew install --cask vagrant-manager
 brew install --cask virtualbox
 # brew install --cask vmware-fusion
-brew install heroku/brew/heroku && heroku update
+# brew install heroku/brew/heroku && heroku update
 
 ################################################################################
 # ASDF                                                                         #
@@ -149,7 +150,7 @@ brew install heroku/brew/heroku && heroku update
 brew install asdf
 # Issue: https://github.com/asdf-vm/asdf/issues/428
 chmod 755 $(brew --prefix asdf)/asdf.sh
-echo -e "\n. $(brew --prefix asdf)/asdf.sh" >> ~/.zprofile
+echo ". $(brew --prefix asdf)/asdf.sh" >> ~/.zprofile
 
 ################################################################################
 # Other IDEs                                                                   #
@@ -165,14 +166,14 @@ brew install --cask kite
 ################################################################################
 # Sublime                                                                      #
 ################################################################################
-#brew install --cask sublime-text
-#mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
-#mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages
-#git clone https://github.com/dracula/sublime.git ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Dracula\ Color\ Scheme
-#git clone https://github.com/equinusocio/material-theme.git ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/material-theme
-#git clone https://github.com/wbond/package_control.git ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/package_control
-#git clone https://github.com/braver/Solarized.git ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Solarized
-#cp -rf ./files/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings 2> /dev/null
+brew install --cask sublime-text
+mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages
+git clone https://github.com/dracula/sublime.git ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Dracula\ Color\ Scheme
+git clone https://github.com/equinusocio/material-theme.git ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/material-theme
+git clone https://github.com/wbond/package_control.git ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/package_control
+git clone https://github.com/braver/Solarized.git ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Solarized
+cp -rf ./files/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings 2> /dev/null
 
 ################################################################################
 # VSCode                                                                       #

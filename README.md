@@ -1,6 +1,6 @@
 # Bootstrap and Provisioning for mac OS / macOS (OS X / OSX) and Dotfiles
 
-This is the gathering of all installation, setup, configuration, and best practices that I could find for serious developers and engineers on an Apple macOS / mac OS (OS X / OSX) machine. This should largely be considered as a great starting point when you receive a new image or machine you are looking to provision and customize. It incorporates the use of dotfiles and is, in such a way, part and parcel with the configuration of the shell environments.
+This is the gathering of all installation, setup, configuration, and best practices that I could find for serious developers and engineers on an Apple macOS / mac OS (OS X / OSX) machine. This should largely be considered as a great starting point when you receive a new image or machine you are looking to provision and customize. It incorporates the use of dotfiles and is, in such a way, part and parcel with the configuration of the shell environments, IDEs, and productivity tools.
 
 **CURRENT AS OF:** Big Sur
 **WORKS ON:** Intel and M1 architectures
@@ -225,7 +225,7 @@ This project was created largely because I became frustrated with a lot of the [
   * `java`
   * `javascript` (includes: `nvm`, `npm`, `node`, `react`)
   * `php`
-  * `python` (includes: `pyenv`)
+  * `python` (includes: `pipenv`, `pyenv`, `virtualenv`)
   * `ruby` (includes: `rbenv`, `bundler`)
   * `rust` (includes: `cargo`)
   * `swift` (includes: `Xcode`, `vapor`)
@@ -244,11 +244,13 @@ This project was created largely because I became frustrated with a lot of the [
 
 There are some things I would like to do to this project to take it further and mainly they are around the maintenance of this project being broken down into some main areas: keeping updates backwards compatible, toggliblity of the various suites of software, `README.md` takes a long time to update. Here are some ways I have thought of to capture these in addition to others:
 
+* `rbenv` and `pyenv` break every other week or so it seems. Can we stabalize around them?
 * Update to work with M1 style of using Homebrew in Big Sur
 * Update screenshot(s)
 * Come up with a way to present the many numerous options in a GUI
   * Probably involves spitting out a master configuration YAML or JSON
   * Using a configuration file to toggle on and off packages and customizations
 * `README.md` sections become auto-generated or maintained
+  * Explain `rbenv`, `pyenv`, `pipenv` usage
 * Enumerate what each Chome extension is (currently cryptic)
 * Research using Ansible

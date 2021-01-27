@@ -13,6 +13,7 @@ case $YESNO in
   ;;
 esac
 
+# open "https://appstore.com/mac/apple/xcode"
 open "https://developer.apple.com/download/more/"
 
 XCODE_APP=( ~/Downloads/Xcode.app )

@@ -1,16 +1,27 @@
 #!/usr/bin/env zsh
 
+# Homebrew
+if [ -d /opt/homebrew ]; then
+  export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
+elif [ -d /usr/local/homebrew ]; then
+  export PATH=/usr/local/homebrew
+fi
+
+# Local
+export PATH=$HOME/.local/bin:$HOME/.local/sbin:$PATH
+
 # rbenv
 eval "$(rbenv init -)"
 export RUBY_LATEST=$(rbenv install -l 2>/dev/null | awk '$1 ~ /^[0-9.]*$/ {latest=$1} END {print latest}')
 rbenv global $RUBY_LATEST
 
 # pyenv
-eval "$(pyenv init -)"
 export PYTHON_LATEST=$(pyenv install -l 2>/dev/null | awk '$1 ~ /^[0-9.]*$/ {latest=$1} END {print latest}')
 export PYTHON2_LATEST=$(pyenv install -l 2>/dev/null | awk '$1 ~ /^2[0-9.]*$/ {latest=$1} END {print latest}')
 pyenv global $PYTHON_LATEST $PYTHON2_LATEST
-
+export PYENV_ROOT=$HOME/.pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
+eval "$(pyenv init -)"
 
 ################################################################################
 # Go                                                                           #
@@ -29,9 +40,9 @@ test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 source $(dirname $(gem which colorls))/tab_complete.sh
-alias ls='colorls --dark --sort-dirs --report'
-alias lc='colorls --tree --dark'
-
+alias ls='colorls --group-directories-first --hyperlink --dark --report'
+alias lc='colorls --group-directories-first --hyperlink --dark --tree --all'
+source $(dirname $(gem which colorls))/tab_complete.sh
 
 ################################################################################
 # Oh My Zsh                                                                    #
@@ -91,6 +102,46 @@ POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{blue}\u256D\u2500%F{white}"
 POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="%F{blue}\u2570\uf460%F{white} "
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context os_icon ssh root_indicator dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time  status rvm time)
+
+# Powerlevel10k
+POWERLEVEL10K_MODE='awesome-fontconfig'
+POWERLEVEL10K_PROMPT_ON_NEWLINE=true
+POWERLEVEL10K_PROMPT_ADD_NEWLINE=true
+POWERLEVEL10K_RPROMPT_ON_NEWLINE=true
+POWERLEVEL10K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL10K_SHORTEN_STRATEGY="truncate_beginning"
+POWERLEVEL10K_RVM_BACKGROUND="black"
+POWERLEVEL10K_RVM_FOREGROUND="249"
+POWERLEVEL10K_RVM_VISUAL_IDENTIFIER_COLOR="red"
+POWERLEVEL10K_TIME_BACKGROUND="black"
+POWERLEVEL10K_TIME_FOREGROUND="249"
+POWERLEVEL10K_TIME_FORMAT="\UF43A %D{%H:%M  \UF133  %d.%m.%y}"
+POWERLEVEL10K_RVM_BACKGROUND="black"
+POWERLEVEL10K_RVM_FOREGROUND="249"
+POWERLEVEL10K_RVM_VISUAL_IDENTIFIER_COLOR="red"
+POWERLEVEL10K_STATUS_VERBOSE=false
+POWERLEVEL10K_VCS_CLEAN_FOREGROUND='black'
+POWERLEVEL10K_VCS_CLEAN_BACKGROUND='green'
+POWERLEVEL10K_VCS_UNTRACKED_FOREGROUND='black'
+POWERLEVEL10K_VCS_UNTRACKED_BACKGROUND='yellow'
+POWERLEVEL10K_VCS_MODIFIED_FOREGROUND='white'
+POWERLEVEL10K_VCS_MODIFIED_BACKGROUND='black'
+POWERLEVEL10K_COMMAND_EXECUTION_TIME_BACKGROUND='black'
+POWERLEVEL10K_COMMAND_EXECUTION_TIME_FOREGROUND='blue'
+POWERLEVEL10K_FOLDER_ICON=''
+POWERLEVEL10K_STATUS_OK_IN_NON_VERBOSE=true
+POWERLEVEL10K_STATUS_VERBOSE=false
+POWERLEVEL10K_COMMAND_EXECUTION_TIME_THRESHOLD=0
+POWERLEVEL10K_VCS_UNTRACKED_ICON='\u25CF'
+POWERLEVEL10K_VCS_UNSTAGED_ICON='\u00b1'
+POWERLEVEL10K_VCS_INCOMING_CHANGES_ICON='\u2193'
+POWERLEVEL10K_VCS_OUTGOING_CHANGES_ICON='\u2191'
+POWERLEVEL10K_VCS_COMMIT_ICON="\uf417"
+POWERLEVEL10K_MULTILINE_FIRST_PROMPT_PREFIX="%F{blue}\u256D\u2500%F{white}"
+POWERLEVEL10K_MULTILINE_SECOND_PROMPT_PREFIX="%F{blue}\u2570\uf460%F{white} "
+POWERLEVEL10K_LEFT_PROMPT_ELEMENTS=(context os_icon ssh root_indicator dir vcs)
+POWERLEVEL10K_RIGHT_PROMPT_ELEMENTS=(command_execution_time  status rvm time)
+
 # Spaceship
 # ZSH_THEME="spaceship"
 SPACESHIP_PROMPT_ADD_NEWLINE="true"
@@ -103,13 +154,15 @@ SPACESHIP_PROMPT_FIRST_PREFIX_SHOW="true"
 SPACESHIP_USER_SHOW="true"
 
 # Set Theme
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="powerlevel10k/powerlevel9k"
 #ZSH_THEME="spaceship-prompt/spaceship"
+
 # Enable Oh My Zsh
 source $ZSH/oh-my-zsh.sh
 
 # Autojump
-source /usr/local/share/autojump/autojump.zsh
+source $(brew --prefix)/share/autojump/autojump.zsh
 
 ################################################################################
 # NVM                                                                          #
@@ -140,23 +193,22 @@ load-nvmrc
 ################################################################################
 # Android
 ################################################################################
+export JAVA_HOME=`/usr/libexec/java_home -V  2>&1 2| sed -n 's/.*Java SE 8" //p'`
 export ANT_HOME=/usr/local/opt/ant
 export MAVEN_HOME=/usr/local/opt/maven
 export GRADLE_HOME=/usr/local/opt/gradle
 export ANDROID_HOME=/usr/local/share/android-sdk
 export ANDROID_NDK_HOME=/usr/local/share/android-ndk
-export INTEL_HAXM_HOME=/usr/local/Caskroom/intel-haxm
+# For non-M1 installations
+# export INTEL_HAXM_HOME=/usr/local/Caskroom/intel-haxm
 export PATH=$ANT_HOME/bin:$PATH
 export PATH=$MAVEN_HOME/bin:$PATH
 export PATH=$GRADLE_HOME/bin:$PATH
 export PATH=$ANDROID_HOME/tools:$PATH
-export PATH=$ANDROID_HOME/platform-tools:$PATH
-export PATH=$ANDROID_HOME/build-tools/23.0.1:$PATH
+# export PATH=$ANDROID_HOME/platform-tools:$PATH
+# export PATH=$ANDROID_HOME/build-tools/23.0.1:$PATH
 
 # QT
 export PATH=$PATH:/usr/local/opt/qt/bin
-export LDFLAGS="-L/usr/local/opt/qt/lib"
-export CPPFLAGS="-I/usr/local/opt/qt/include"
-
-# Homebrew
-export PATH=/usr/local/sbin:$PATH
+export LDFLAGS="$LDFLAGS -L/usr/local/opt/qt/lib"
+export CPPFLAGS="$CPPFLAGS -I/usr/local/opt/qt/include"

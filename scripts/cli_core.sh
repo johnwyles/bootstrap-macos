@@ -7,17 +7,17 @@
 # Others
 # brew install ack
 brew install autojump
-brew install asciinema
-brew install bat
+# brew install asciinema
+# brew install bat
 brew install coreutils
-sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
+# sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
 brew install curl
 # brew install dark-mode
-brew install exa
+# brew install exa
 # brew install exiv2
 brew install findutils
-brew install fzf
-brew install git
+# brew install fzf
+# brew install git
 brew install git-extras
 brew install git-flow
 brew install git-lfs
@@ -26,7 +26,7 @@ brew install grep
 # brew install hub
 # brew install imagemagick --with-webp
 brew install jq
-brew install lua
+# brew install lua
 # brew install lynx
 brew install moreutils
 brew install openssh
@@ -35,7 +35,7 @@ brew install openssl
 # brew install pandoc
 # brew install pkg-config libffi
 # brew install pigz
-brew install pv
+# brew install pv
 brew install readline
 # brew install rename
 # brew install rhino
@@ -51,4 +51,4 @@ sh ~/.vim_runtime/install_awesome_vimrc.sh
 # brew install webkit2png
 brew install wget
 # brew install zopfli
-brew install zlib
+# brew install zlib

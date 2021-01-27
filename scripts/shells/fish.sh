@@ -4,49 +4,45 @@
 brew install fish
 
 # Setup fish
+export FISH_BIN_PATH=$(brew --prefix)/bin/fish
 mkdir -p  ~/.config/fish
-touch ~/.config/fish/config.fish
-FISH_BIN_PATH=`which fish`
+echo "set -g -x PATH \$PATH $(brew --prefix)/bin $(brew --prefix)/sbin" > ~/.config/fish/config.fish
 grep -q -F $FISH_BIN_PATH /etc/shells || sudo sh -c "echo $FISH_BIN_PATH >> /etc/shells"
 
-# Install Fisher
-#curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
-
 # Install Oh My Fish
-curl -L https://get.oh-my.fish > install.fish
-/usr/bin/env fish -c 'fish install.fish --noninteractive --path=~/.local/share/omf --config=~/.config/omf'
-rm -f install.fish
+curl -L http://get.oh-my.fish | fish
+
+# Install Fisher
+curl -sL https://git.io/fisher | $FISH_BIN_PATH -c 'source && fisher install jorgebucaran/fisher'
 
 # Addons (from: https://github.com/ghaiklor/iterm-fish-fisher-osx)
-/usr/bin/env fish -c 'fisher add igalic/anicode'
-/usr/bin/env fish -c 'fisher add fisherman/await'
-/usr/bin/env fish -c 'fisher add edc/bass'
-/usr/bin/env fish -c 'fisher add oh-my-fish/theme-bobthefish'
-/usr/bin/env fish -c 'fisher add laughedelic/brew-completions'
+$FISH_BIN_PATH -l -c 'fisher install igalic/anicode'
+$FISH_BIN_PATH -l -c 'fisher install fisherman/await'
+$FISH_BIN_PATH -l -c 'fisher install edc/bass'
+# $FISH_BIN_PATH -l -c 'fisher install oh-my-fish/theme-bobthefish'
+$FISH_BIN_PATH -l -c 'fisher install laughedelic/brew-completions'
 
-brew install terminal-notifier
-/usr/bin/env fish -c 'fisher add franciscolourenco/done'
+# brew install terminal-notifier
+$FISH_BIN_PATH -l -c 'fisher install franciscolourenco/done'
 
-/usr/bin/env fish -c 'fisher add Shadowigor/plugin-errno-grep'
+$FISH_BIN_PATH -l -c 'fisher install Shadowigor/plugin-errno-grep'
 
-brew install fzy
-/usr/bin/env fish -c 'fisher add gyakovlev/fish-fzy'
+# brew install fzy
+# $FISH_BIN_PATH -c 'fisher install gyakovlev/fish-fzy'
 
-brew install grc
-/usr/bin/env fish -c 'fisher add oh-my-fish/plugin-grc'
+# brew install grc
+# $FISH_BIN_PATH -c 'fisher install oh-my-fish/plugin-grc'
 
 brew install jq
-/usr/bin/env fish -c 'fisher add oh-my-fish/plugin-license'
+$FISH_BIN_PATH -l -c 'fisher install oh-my-fish/plugin-license'
 
-/usr/bin/env fish -c 'fisher add oh-my-fish/plugin-node-binpath'
+# $FISH_BIN_PATH -c 'fisher install oh-my-fish/plugin-node-binpath'
+$FISH_BIN_PATH -l -c 'fisher install oh-my-fish/plugin-pj'
+$FISH_BIN_PATH -l -c 'fisher install fisherman/shark'
+$FISH_BIN_PATH -l -c 'fisher install Markcial/upto'
+$FISH_BIN_PATH -l -c 'fisher install jethrokuan/z'
 
-/usr/bin/env fish -c 'fisher add oh-my-fish/plugin-pj'
-set -U PROJECT_PATHS ~/Library/Projects
-
-/usr/bin/env fish -c 'fisher add fisherman/shark'
-/usr/bin/env fish -c 'fisher add Markcial/upto'
-/usr/bin/env fish -c 'fisher add jethrokuan/z'
+$FISH_BIN_PATH -l -c 'fisher install IlanCosman/tide'
 
 # Change to fish shell as default shell
 chsh -s $FISH_BIN_PATH

@@ -2,12 +2,28 @@
 
 export _CLT_PATH="/Library/Developer/CommandLineTools"
 
-# Update the OS and Install Xcode Tools
+# Update the OS
 echo
 echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running update of macOS: ./scripts/xcode_cli_tools.sh"
 echo "    (restart if needed and run again): ./scripts/xcode_cli_tools.sh"
 echo
 sudo softwareupdate -ia --verbose
+
+# Attempt to accept the Xcode license agreement
+echo
+echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Attempting to accept the agreement for Xcode:"
+echo    "./scripts/xcode_cli_tools.sh"
+echo
+sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+if ! sudo xcodebuild -license accept; then
+  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m You will need install the latest Xcode version"
+  echo "before running this script. Install BOTH of these and and then you can re-run this script."
+  echo "Lauching App Store now where you can download the latest version and install it."
+  echo
+  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Once installation of Xcode is complete please re-run this setup."
+  open "https://appstore.com/mac/apple/xcode"
+  exit
+fi
 
 # Install Xcode CLI tools
 if ! $(xcode-select -p &>/dev/null); then
@@ -40,8 +56,6 @@ for pkg in /Applications/Xcode.app/Contents/Resources/Packages/*.pkg; do
 done
 
 # Install macOS SDK headers
-#if [ -f /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_11.7.pkg ]; then
-if [ -f $CLT_PATH/Packages/macOS_SDK_headers_for_macOS_12.2.pkg ]; then
-  sudo installer -pkg $_CLT_PATH/Packages/macOS_SDK_headers_for_macOS_12.2.pkg -target /
-  #sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_11.7.pkg -target /
-fi
+for pkg in $CLT_PATH/Packages/macOS_SDK_headers_for_macOS_*.pkg; do
+  sudo installer -pkg "$pkg" -target /
+done
