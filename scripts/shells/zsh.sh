@@ -34,6 +34,8 @@ pip install Pygments
 gem install colorls
 rbenv rehash
 compaudit | xargs chmod g-w,o-w
+compaudit | xargs chmod g-w,o-w $(brew --prefix)/share/zsh
+compaudit | xargs chmod g-w,o-w $(brew --prefix)/share/zsh/site-functions
 
 cp $BOOTSTRAP_MACOS_DIR/dotfiles/.zshrc ~/
 
