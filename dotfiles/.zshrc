@@ -53,12 +53,12 @@ export DEFAULT_USER=$USER
 ENABLE_CORRECTION="false"
 HIST_STAMPS="mm/dd/yyyy"
 TERM=xterm-256color
-plugins=(aws bundler cargo colorize command-not-found common-aliases compleat \
+plugins=(git aws bundler cargo colorize command-not-found common-aliases compleat \
     docker docker-compose gem git git-extras git-flow github gitignore golang \
     history history-substring-search kubectl last-working-dir node npm nvm osx \
     pip pyenv pylint python rake rbenv react-native ruby rvm ssh-agent sudo \
-    terraform themes tmux tmuxinator virtualenv xcode \
-    zsh-navigation-tools)
+    terraform themes tmux tmuxinator virtualenv xcode zsh-autosuggestions \
+    zsh-syntax-highlighting zsh-navigation-tools)
 
 autoload -U compinit && compinit
 bindkey '\e[A' history-beginning-search-backward
