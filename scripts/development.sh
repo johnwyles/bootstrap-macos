@@ -129,7 +129,7 @@ sdkmanager "build-tools;23.0.1"
 ################################################################################
 # Arduino                                                                      #
 ################################################################################
-# brew install --cask arduino
+brew install arduino
 
 ################################################################################
 # Install Docker, Kubernetes, Heroku, Terraform, Vagrant, VirtualBox           #
@@ -143,14 +143,6 @@ brew install --cask vagrant-manager
 brew install --cask virtualbox
 # brew install --cask vmware-fusion
 # brew install heroku/brew/heroku && heroku update
-
-################################################################################
-# ASDF                                                                         #
-################################################################################
-brew install asdf
-# Issue: https://github.com/asdf-vm/asdf/issues/428
-chmod 755 $(brew --prefix asdf)/asdf.sh
-echo ". $(brew --prefix asdf)/asdf.sh" >> ~/.zprofile
 
 ###############################################################################
 # Neofetch                                                                    #

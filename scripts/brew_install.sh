@@ -34,3 +34,9 @@ brew tap homebrew/cask
 
 # Run some diagnostics
 brew doctor
+
+################################################################################
+# ASDF                                                                         #
+################################################################################s
+brew install asdf
+chmod 755 $(brew --prefix asdf)/asdf.sh

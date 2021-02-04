@@ -19,6 +19,8 @@ pushd powerline
 popd
 rm -rf powerline
 
-# Fonts
-brew tap homebrew/cask-fonts
-brew install --cask font-hack-nerd-font
+# Hack Nerd Font
+brew install font-hack-nerd-font
+
+# Fira Code
+brew install font-fira-code

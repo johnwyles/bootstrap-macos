@@ -212,3 +212,11 @@ export PATH=$ANDROID_HOME/tools:$PATH
 export PATH=$PATH:/usr/local/opt/qt/bin
 export LDFLAGS="$LDFLAGS -L/usr/local/opt/qt/lib"
 export CPPFLAGS="$CPPFLAGS -I/usr/local/opt/qt/include"
+
+# ASDR
+. $(brew --prefix asdf)/asdf.sh
+# append completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit
+compinit

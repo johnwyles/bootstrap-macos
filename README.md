@@ -244,13 +244,14 @@ This project was created largely because I became frustrated with a lot of the [
 
 There are some things I would like to do to this project to take it further and mainly they are around the maintenance of this project being broken down into some main areas: keeping updates backwards compatible, toggliblity of the various suites of software, `README.md` takes a long time to update. Here are some ways I have thought of to capture these in addition to others:
 
-* `rbenv` and `pyenv` break every other week or so it seems. Can we stabalize around them?
-* Update to work with M1 style of using Homebrew in Big Sur
+* `rbenv` and `pyenv` break every other week or so it seems. Can we stabalize around them? **ASDF?!?**
 * Update screenshot(s)
 * Come up with a way to present the many numerous options in a GUI
   * Probably involves spitting out a master configuration YAML or JSON
   * Using a configuration file to toggle on and off packages and customizations
 * `README.md` sections become auto-generated or maintained
-  * Explain `rbenv`, `pyenv`, `pipenv` usage
+* Explain `rbenv`, `pyenv`, `pipenv` usage **ASDF instead?!?**
 * Enumerate what each Chome extension is (currently cryptic)
+  * This may be removed since using Google Sync within Google Chrome signin brings all old extensions back
+* Like with Chrome signing into VS Code installs old extensions and settings so possibly remove this as well
 * Research using Ansible
