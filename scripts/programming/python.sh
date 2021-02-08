@@ -42,5 +42,5 @@ pip install virtualenv
 
 pyenv rehash
 
-# Install pipenv
-brew install pipenv
+# Install poetry
+brew install poetry

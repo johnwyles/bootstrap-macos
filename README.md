@@ -225,7 +225,7 @@ This project was created largely because I became frustrated with a lot of the [
   * `java`
   * `javascript` (includes: `nvm`, `npm`, `node`, `react`)
   * `php`
-  * `python` (includes: `pipenv`, `pyenv`, `virtualenv`)
+  * `python` (includes: `poetry`, `pyenv`, `virtualenv`)
   * `ruby` (includes: `rbenv`, `bundler`)
   * `rust` (includes: `cargo`)
   * `swift` (includes: `Xcode`, `vapor`)
@@ -250,7 +250,7 @@ There are some things I would like to do to this project to take it further and 
   * Probably involves spitting out a master configuration YAML or JSON
   * Using a configuration file to toggle on and off packages and customizations
 * `README.md` sections become auto-generated or maintained
-* Explain `rbenv`, `pyenv`, `pipenv` usage **ASDF instead?!?**
+* Explain `rbenv`, `pyenv`, `poetry` usage **ASDF instead?!?**
 * Enumerate what each Chome extension is (currently cryptic)
   * This may be removed since using Google Sync within Google Chrome signin brings all old extensions back
 * Like with Chrome signing into VS Code installs old extensions and settings so possibly remove this as well

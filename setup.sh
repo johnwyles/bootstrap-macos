@@ -184,13 +184,6 @@ function runSetup() {
   echo
   ( ./scripts/productivity.sh )
 
-  # Install Chrome Extensions
-  # echo
-  # echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of Google Chrome"
-  # echo    "extensions: ./scripts/productivity/google_chrome_extensions.sh"
-  # echo
-  # ( ./scripts/productivity/google_chrome_extensions.sh )
-
   # Install Development Tools
   echo
   echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of development tools:"
@@ -198,19 +191,12 @@ function runSetup() {
   echo
   ( ./scripts/development.sh )
 
-  # Install Arduino Tools
-  # echo
-  # echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of Arduino tools:"
-  # echo    "  ./scripts/arduino.sh"
-  # echo
-  # ( ./scripts/arduino.sh )
-
-  # Install Raspberry Pi Tools
+  # Install Prototyping Board Tools
   echo
-  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of Raspberry Pi tools:"
-  echo    "  ./scripts/raspberrypi.sh"
+  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running install of Prototyping Board tools:"
+  echo    "  ./scripts/prototyping_boards.sh"
   echo
-  ( ./scripts/raspberrypi.sh )
+  ( ./scripts/prototyping_boards.sh )
 
   # Install 3D Printing Tools
   echo
@@ -234,11 +220,11 @@ function runSetup() {
   ( ./scripts/cloud/gcp.sh )
 
   # Setup OpenFaaS
-#  echo
-#  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running setup of OpenFaaS:"
-#  echo    "  ./scripts/openfaas.sh"
-#  echo
-#  ( ./scripts/cloud/openfaas.sh )
+  echo
+  echo -e "\033[1mBOOTSTRAP_MACOS:\033[0m Running setup of OpenFaaS:"
+  echo    "  ./scripts/openfaas.sh"
+  echo
+  ( ./scripts/cloud/openfaas.sh )
 
   # Cleanup Homebrew
   echo
