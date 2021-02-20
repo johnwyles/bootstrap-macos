@@ -17,7 +17,7 @@ brew install curl
 # brew install exiv2
 brew install findutils
 # brew install fzf
-# brew install git
+brew install git
 brew install git-extras
 brew install git-flow
 brew install git-lfs
@@ -45,9 +45,12 @@ brew install screen
 # brew install ssh-copy-id
 brew install tmux
 # brew install tree
+
+# Install vim
 brew install vim
 git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_awesome_vimrc.sh
+
 # brew install webkit2png
 brew install wget
 # brew install zopfli

@@ -10,26 +10,27 @@ brew install --cask 1password
 brew install --cask alfred
 
 # Install Bartender
-# brew install --cask bartender
+brew install --cask bartender
 
 # Install BOINC
 # brew install --cask --appdir="~/Applications" boinc
 
 # Install Dropbox
-brew install --cask dropbox
+# brew install --cask dropbox
 
 # Install Evernote
 # brew install --cask evernote
 
 # Install Firefox
-brew install --cask firefox
+# brew install --cask firefox
 
 # Install GIMP
 # brew install --cask gimp
 
 # Install Backup and Sync from Google
-# brew install --cask google-backup-and-sync
-brew install --cask google-drive-file-stream
+brew install --cask google-backup-and-sync
+# Seems broken for M1?
+# brew install --cask google-drive-file-stream
 
 # Install Hugo
 brew install hugo
@@ -71,7 +72,7 @@ brew install --cask spotify
 brew install --cask vlc
 
 # Install XQuartz
-brew install --cask xquartz
+# brew install --cask xquartz
 
 ################################################################################
 # Safari                                                                       #
