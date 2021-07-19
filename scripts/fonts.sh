@@ -9,8 +9,8 @@ brew install woff2
 # Powerline
 mkdir -p powerline
 pushd powerline
-  pip install --user powerline-status
-  pip install --user powerline-gitstatus
+  pip3 install --user powerline-status
+  pip3 install --user powerline-gitstatus
   git clone https://github.com/powerline/fonts.git
   pushd fonts
     ./install.sh
@@ -20,7 +20,9 @@ popd
 rm -rf powerline
 
 # Hack Nerd Font
-brew install font-hack-nerd-font
+brew tap homebrew/cask-fonts
+brew install --cask font-hack-nerd-font
 
 # Fira Code
-brew install font-fira-code
+brew tap homebrew/cask-fonts
+brew install --cask font-fira-code

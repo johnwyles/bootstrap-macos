@@ -20,4 +20,4 @@ brew install android-ndk
 # brew install intel-haxm
 
 export JAVA_HOME=`/usr/libexec/java_home -V  2>&1 2| sed -n 's/.*Java SE 8" //p'`
-brew install --cask netbeans-java-se
+brew install --cask netbeans
