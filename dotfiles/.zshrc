@@ -16,12 +16,9 @@ export RUBY_LATEST=$(rbenv install -l 2>/dev/null | awk '$1 ~ /^[0-9.]*$/ {lates
 rbenv global $RUBY_LATEST
 
 # pyenv
-export PYTHON_LATEST=$(pyenv install -l 2>/dev/null | awk '$1 ~ /^[0-9.]*$/ {latest=$1} END {print latest}')
-export PYTHON2_LATEST=$(pyenv install -l 2>/dev/null | awk '$1 ~ /^2[0-9.]*$/ {latest=$1} END {print latest}')
-pyenv global $PYTHON_LATEST $PYTHON2_LATEST
-export PYENV_ROOT=$HOME/.pyenv
-export PATH=$PYENV_ROOT/bin:$PATH
+export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 ################################################################################
 # Go                                                                           #
@@ -53,10 +50,10 @@ export DEFAULT_USER=$USER
 ENABLE_CORRECTION="false"
 HIST_STAMPS="mm/dd/yyyy"
 TERM=xterm-256color
-plugins=(git aws bundler cargo colorize command-not-found common-aliases compleat \
+plugins=(git aws bundler colorize command-not-found common-aliases compleat \
     docker docker-compose gem git git-extras git-flow github gitignore golang \
-    history history-substring-search kubectl last-working-dir node npm nvm osx \
-    pip pyenv pylint python rake rbenv react-native ruby rvm ssh-agent sudo \
+    history history-substring-search kubectl last-working-dir node npm nvm macos \
+    pip pylint python rake rbenv react-native ruby rust rvm ssh-agent sudo \
     terraform themes tmux tmuxinator virtualenv xcode zsh-autosuggestions \
     zsh-syntax-highlighting zsh-navigation-tools)
 
@@ -220,3 +217,4 @@ fpath=(${ASDF_DIR}/completions $fpath)
 # initialise completions with ZSH's compinit
 autoload -Uz compinit
 compinit
+
