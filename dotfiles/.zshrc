@@ -218,4 +218,5 @@ fpath=(${ASDF_DIR}/completions $fpath)
 autoload -Uz compinit
 compinit
 
+# For GPG
 export GPG_TTY=$(tty)
