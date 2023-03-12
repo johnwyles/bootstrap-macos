@@ -39,4 +39,4 @@ brew doctor
 # ASDF                                                                         #
 ################################################################################s
 brew install asdf
-chmod 755 $(brew --prefix asdf)/asdf.sh
+chmod 755 $(brew --prefix asdf)/libexec/asdf.sh
