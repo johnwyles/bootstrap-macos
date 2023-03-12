@@ -110,5 +110,5 @@ export PATH=$PATH:$(brew --prefix)/opt/qt/bin
 export LDFLAGS="$LDFLAGS -L$(brew --prefix)/opt/qt/lib"
 export CPPFLAGS="$CPPFLAGS -I$(brew --prefix)/opt/qt/include"
 
-source $(brew --prefix asdf)/libexec/asdf.sh
+source $(brew --prefix asdf)/asdf.sh
 source $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash

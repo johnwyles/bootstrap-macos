@@ -22,16 +22,15 @@ brew install --cask bartender
 # brew install --cask evernote
 
 # Install Firefox
-brew install --cask firefox
+# brew install --cask firefox
 
 # Install GIMP
 # brew install --cask gimp
 
 # Install Backup and Sync from Google
-# brew install --cask google-backup-and-sync
+brew install --cask google-backup-and-sync
 # Seems broken for M1?
 # brew install --cask google-drive-file-stream
-brew install --cask google-drive
 
 # Install Hugo
 brew install hugo
@@ -231,35 +230,35 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 ################################################################################
 # MacDown                                                                      #
 ################################################################################
-# brew install --cask macdown
-# git clone https://github.com/dracula/macdown
-# mkdir -p ~/Library/Application\ Support/MacDown/Themes/
-# cp -f macdown/Dracula.style ~/Library/Application\ Support/MacDown/Themes/
-# rm -rf macdown
-# # Fancy AppleScript to activate the "Dracula" theme
-# killall MacDown
-# sleep 5
-# /Applications/MacDown.app/Contents/MacOS/MacDown &
-# sleep 5
-# osascript <<EOD
-# activate application "MacDown"
-# tell application "System Events" to tell process "MacDown"
-#   keystroke "," using command down
-#   delay 0.5
-#   tell window "Preferences"
-#     click
-#     click button "Editor" of toolbar 1
-#     tell pop up button 1
-#       click
-#       tell menu 1
-#         click menu item "Dracula"
-#       end tell
-#     end tell
-#   end tell
-# end tell
-# EOD
-# sleep 5
-# killall MacDown
+brew install --cask macdown
+git clone https://github.com/dracula/macdown
+mkdir -p ~/Library/Application\ Support/MacDown/Themes/
+cp -f macdown/Dracula.style ~/Library/Application\ Support/MacDown/Themes/
+rm -rf macdown
+# Fancy AppleScript to activate the "Dracula" theme
+killall MacDown
+sleep 5
+/Applications/MacDown.app/Contents/MacOS/MacDown &
+sleep 5
+osascript <<EOD
+activate application "MacDown"
+tell application "System Events" to tell process "MacDown"
+  keystroke "," using command down
+  delay 0.5
+  tell window "Preferences"
+    click
+    click button "Editor" of toolbar 1
+    tell pop up button 1
+      click
+      tell menu 1
+        click menu item "Dracula"
+      end tell
+    end tell
+  end tell
+end tell
+EOD
+sleep 5
+killall MacDown
 
 ################################################################################
 # Photos.app                                                                   #

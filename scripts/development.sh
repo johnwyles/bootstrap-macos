@@ -138,9 +138,9 @@ brew install docker
 brew install docker-compose
 brew install --build-from-source kubernetes-cli
 brew install --build-from-source terraform
-# brew install --cask vagrant
-# brew install --cask vagrant-manager
-# brew install --cask virtualbox
+brew install --cask vagrant
+brew install --cask vagrant-manager
+brew install --cask virtualbox
 # brew install --cask vmware-fusion
 # brew install heroku/brew/heroku && heroku update
 
@@ -158,7 +158,7 @@ brew install --cask intellij-idea
 ################################################################################
 # Kite                                                                         #
 ################################################################################
-# brew install --cask kite
+brew install --cask kite
 
 ################################################################################
 # Sublime                                                                      #

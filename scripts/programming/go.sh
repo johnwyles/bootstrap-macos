@@ -3,8 +3,8 @@
 brew install go
 
 # Some key imports for the IDEs
-go install golang.org/x/tools/cmd/godoc@latest
-go install github.com/golang/lint/golint@latest
+go get golang.org/x/tools/cmd/godoc
+go get github.com/golang/lint/golint
 # go get github.com/derekparker/delve/cmd/dlv
 # go get github.com/golang/dep/cmd/dep
 # go get golang.org/x/tools/cmd/goimports
@@ -27,11 +27,11 @@ go install github.com/golang/lint/golint@latest
 
 # Install Protobuf and gRPC
 brew install protobuf
-go install google.golang.org/grpc@latest
+go get google.golang.org/grpc
 
 # MongoDB
 #go get gopkg.in/mgo.v2
-#go install go.mongodb.org/mongo-driver/mongo@latest
+go get go.mongodb.org/mongo-driver/mongo
 
 # go-kit
 # go get github.com/go-kit/kit/...
@@ -41,7 +41,7 @@ go install google.golang.org/grpc@latest
 # go get github.com/kataras/iris/...
 
 # Install the AWS SDK
-#go install github.com/aws/aws-sdk-go/...
+go get github.com/aws/aws-sdk-go/...
 
 # Install the GCP SDK
-#go install cloud.google.com/go/...
+go get cloud.google.com/go/...

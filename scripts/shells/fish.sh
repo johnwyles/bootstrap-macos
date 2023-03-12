@@ -42,7 +42,7 @@ $FISH_BIN_PATH -l -c 'fisher install fisherman/shark'
 $FISH_BIN_PATH -l -c 'fisher install Markcial/upto'
 $FISH_BIN_PATH -l -c 'fisher install jethrokuan/z'
 
-$FISH_BIN_PATH -l -c 'fisher install IlanCosman/tide@v5'
+$FISH_BIN_PATH -l -c 'fisher install IlanCosman/tide'
 
 # Change to fish shell as default shell
 chsh -s $FISH_BIN_PATH

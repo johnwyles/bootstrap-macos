@@ -56,8 +56,6 @@ for pkg in /Applications/Xcode.app/Contents/Resources/Packages/*.pkg; do
 done
 
 # Install macOS SDK headers
-# for pkg in $CLT_PATH/Packages/macOS_SDK_headers_for_macOS_*.pkg; do
-#   sudo installer -pkg "$pkg" -target /
-# done
-
-sudo xcode-select -switch /Library/Developer/CommandLineTools
+for pkg in $CLT_PATH/Packages/macOS_SDK_headers_for_macOS_*.pkg; do
+  sudo installer -pkg "$pkg" -target /
+done
